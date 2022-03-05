@@ -18,4 +18,13 @@ const getTrips = () => {
     .catch(err => console.log(err))
 }
 
-export { getTraveler, getTrips };
+const getDestinations = () => {
+  return fetch('http://localhost:3001/api/v1/destinations')
+    .then(response => response.json())
+    .then(data => {
+      console.log('destination data', data)
+      return data
+    })
+}
+
+export { getTraveler, getTrips, getDestinations };

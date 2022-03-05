@@ -9,7 +9,7 @@ import './images/turing-logo.png'
 
 // console.log('This is the JavaScript entry file - your code begins here.');
 
-import { getTraveler, getTrips } from './apiCalls.js'
+import { getTraveler, getTrips, getDestinations } from './apiCalls.js'
 import Traveler from './Traveler.js'
 import domUpdates from './domUpdates.js'
 
@@ -31,11 +31,12 @@ function loadTravelerData(id) {
     //   console.log('get trips data', data)
     // })
 
-  Promise.all([getTraveler(id), getTrips()])
+  Promise.all([getTraveler(id), getTrips(), getDestinations()])
     .then(data => {
       // console.log('promise data', data)
       console.log('traveler data', data[0])
       console.log('trip data', data[1])
+      console.log('destination data', data[2])
 
       traveler = new Traveler(data[0].id, data[0].name, data[0].travelerType)
       domUpdates.updateTitle(traveler.name)
