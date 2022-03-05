@@ -41,8 +41,11 @@ function loadTravelerData(id) {
       traveler = new Traveler(data[0].id, data[0].name, data[0].travelerType)
       domUpdates.updateTitle(traveler.name)
       const travelerTrips = filterTripsByUserId(data[1].trips, data[0].id)
-      traveler.trips = travelerTrips
       console.log(traveler)
+
+
+      const detailedTrips = filterDestinationsByDestId(data[2].destinations, travelerTrips)
+      traveler.trips = detailedTrips
       domUpdates.displayTrips(traveler.trips)
     })
 
@@ -53,12 +56,40 @@ loadTravelerData(2);
 
 
 function filterTripsByUserId(trips, travelerId) {
-  console.log('test', trips)
+  // console.log('test', trips)
   const filteredTrips = trips.filter(trip => {
     return trip.userID === travelerId;
   })
   console.log('filter trips', filteredTrips)
   return filteredTrips
+}
+
+function filterDestinationsByDestId(destinations, filteredTrips) {
+  console.log('hello', destinations)
+  console.log('hiiii', filteredTrips)
+  const result = filteredTrips.map(trip => {
+
+    const foundDestination = destinations.find(destination => {
+      return destination.id === trip.destinationID
+    })
+    console.log('testing', foundDestination)
+
+    let obj = {
+      image: foundDestination.image,
+      alt: foundDestination.alt,
+      destination: foundDestination.destination,
+      estimatedLodgingCostPerDay: foundDestination.estimatedLodgingCostPerDay,
+      estimatedFlightCostPerPerson: foundDestination.estimatedFlightCostPerPerson,
+      travelers: trip.travelers,
+      date: trip.date,
+      duration: trip.duration,
+      status: trip.status,
+      suggestedActivities: trip.suggestedActivities
+    }
+    return obj
+  })
+  console.log('result', result)
+  return result
 }
 
 

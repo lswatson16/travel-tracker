@@ -14,17 +14,17 @@ const domUpdates = {
       tripWidgetSection.innerHTML += `
       <section class="trip-widget" id="tripWidget">
         <div class="trip-image-container">
-          <img class="trip-image" id="tripImage" src="https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" alt="aeriel view of Lima, Peru">
+          <img class="trip-image" id="tripImage" src=${trip.image} alt=${trip.alt}>
         </div>
         <div class="trip-details-container">
-          <h3 class="trip-destination" id="tripDestination">📍Lima, Peru</h3>
+          <h3 class="trip-destination" id="tripDestination">${trip.destination}</h3>
           <div class="trip-details">
             <p class="trip-detail-title">Est. Lodging Cost/Day:</p>
-            <p class="trip-lodging-cost" id="tripLodgingCost">70</p>
+            <p class="trip-lodging-cost" id="tripLodgingCost">${trip.estimatedLodgingCostPerDay}</p>
           </div>
           <div class="trip-details">
             <p class="trip-detail-title">Est. Flight Cost/Person:</p>
-            <p class="trip-flight-cost" id="tripFlightCost">400</p>
+            <p class="trip-flight-cost" id="tripFlightCost">${trip.estimatedFlightCostPerPerson}</p>
           </div>
           <div class="trip-details">
             <p class="trip-detail-title">Travelers:</p>
@@ -50,9 +50,6 @@ const domUpdates = {
       </section>
       `;
     });
-
-
-    // tripDestination.innerText = ``
   }
 }
 
