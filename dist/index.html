@@ -1,14 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <!-- <link rel="stylesheet" href="../src/css/styles.css"/> -->
+  <title>Travel Tracker</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
+  <nav>
+    <p>Travel Tracker</p>
+    <button class="sign-in-button" type="button" name="button">Sign In</button>
+  </nav>
+  <main>
+    <!-- <section> -->
+      <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
+      <!-- <img src="./images/ishan-seefromthesky-WVziwa_DDwI-unsplash.jpg" alt="aeriel view of Rasdhoo Island in the Maldives"> -->
+    <!-- </section> -->
+
+    <section class="user-dashboard" id="userDashboard">
+
+      <h1 class="welcome-traveler" id="welcomeTraveler">Welcome traveler!</h1>
+      <section class="traveler-expense-section">
+
+        <div class="expense-container">
+          <p class="title-expense">Total expense:</p>
+          <p class="total-expense" id="totalExpense">$1200</p>
+          <p class="footnote-expense">Yearly total expense (includes travel agent's 10% fee)</p>
+        </div>
+      </section>
+
+      <section class="traveler-trips-section">
+        <h2 class="title-trips">Trips</h2>
+        <!-- <div class="toggle-view">
+
+        </div> -->
+        <div class="filter-buttons-container">
+          <button class="filter-button" type="button" name="button">All Trips</button>
+          <button class="filter-button" type="button" name="button">Past Trips</button>
+          <button class="filter-button" type="button" name="button">Present Trips</button>
+          <button class="filter-button" type="button" name="button">Upcoming Trips</button>
+          <button class="filter-button" type="button" name="button">Pending Trips</button>
+        </div>
+
+        <section class="trip-widget-section">
+
+          <section class="trip-widget">
+            <div class="trip-image-container">
+              <img class="trip-image" src="https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" alt="aeriel view of Lima, Peru">
+            </div>
+
+            <div class="trip-details">
+              <p>Destination: Lima, Peru</p>
+              <p>Est. Lodging Cost/Day: 70</p>
+              <p>Est. Flight Cost/Person: 400</p>
+              <p>Travelers: 1</p>
+              <p>Date: "2022/09/16"</p>
+              <p>Duration: 8</p>
+              <p>Status: "approved"</p>
+              <p>Suggested Actitivies: </p>
+            </div>
+          </section>
+
+          <section class="trip-widget">
+            <div class="trip-image-container">
+              <img class="trip-image" src="https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" alt="aeriel view of Lima, Peru">
+            </div>
+
+            <div class="trip-details">
+              <p>Destination: Lima, Peru</p>
+              <p>Est. Lodging Cost/Day: 70</p>
+              <p>Est. Flight Cost/Person: 400</p>
+              <p>Travelers: 1</p>
+              <p>Date: "2022/09/16"</p>
+              <p>Duration: 8</p>
+              <p>Status: "approved"</p>
+              <p>Suggested Actitivies: </p>
+            </div>
+          </section>
+
+        </section>
+
+      </section>
+
+    </section>
+  </main>
+
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
