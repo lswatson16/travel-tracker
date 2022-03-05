@@ -42,12 +42,13 @@ function loadTravelerData(id) {
       const travelerTrips = filterTripsByUserId(data[1].trips, data[0].id)
       traveler.trips = travelerTrips
       console.log(traveler)
+      domUpdates.displayTrips(traveler.trips)
     })
 
 }
 
 // triggers the GET request for single traveler
-loadTravelerData(1);
+loadTravelerData(2);
 
 
 function filterTripsByUserId(trips, travelerId) {
