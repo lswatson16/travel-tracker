@@ -10,5 +10,32 @@ import './images/turing-logo.png'
 // console.log('This is the JavaScript entry file - your code begins here.');
 
 import getTraveler from './apiCalls.js'
+import Traveler from './Traveler.js'
+import domUpdates from './domUpdates.js'
 
-getTraveler(1);
+// -------------------EVENT HANDLERS-------------------------
+
+// -------------------FUNCTIONS-------------------------
+
+let traveler;
+
+function loadTravelerData(id) {
+  getTraveler(id)
+    .then(data => {
+      traveler = new Traveler(data.id, data.name, data.travelerType)
+      domUpdates.updateTitle(traveler.name)
+    })
+}
+
+// triggers the GET request for single traveler
+loadTravelerData(1);
+
+
+
+
+
+// function randomId() {
+//   return Math.floor(Math.random() * 50);
+// };
+//
+// randomId();
