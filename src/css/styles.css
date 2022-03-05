@@ -1,13 +1,6 @@
 * {
-  /* border: 2px solid red; */
   padding: 0px;
 }
-
-/* body,
-html {
-  height: 100%;
-  width: 100%;
-} */
 
 body {
   height: 100%;
@@ -21,7 +14,6 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 22%;
-  /* background-color: #164e63; */
 }
 
 .logo {
@@ -37,21 +29,16 @@ nav {
 .welcome-traveler {
   font-size: 38px;
   text-align: center;
-  /* margin: auto; */
 }
 
 .traveler-expense-section {
   width: 16%;
-  /* height: 14%; */
   margin-bottom: 55px;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   background-color: rgb(250 250 249);
   padding: 8px;
   border-radius: 7px;
   border: solid #94a3b8 1px;
-  /* display: flex; */
-  /* flex-direction: column;
-  justify-content: space-between; */
 }
 
 .expense-container{
@@ -74,10 +61,6 @@ nav {
 .footnote-expense {
   font-size: 12px;
 }
-
-/* .header-trips {
-  text-align: center;
-} */
 
 .filter-buttons-container {
   display: flex;
@@ -125,7 +108,6 @@ nav {
 
 .trip-details-container {
   border: solid #cbd5e1 1px;
-  /* border-radius: 18px; */
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
   margin-top: -20px;
@@ -138,7 +120,6 @@ nav {
 
 .trip-details {
   display: flex;
-  /* margin-bottom: 2px; */
 }
 
 .trip-detail-title {
