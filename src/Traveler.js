@@ -7,26 +7,26 @@ class Traveler {
   }
 
   calcTotalExpensesForYear() {
-    // console.log('trips', this.trips)
-
-    const allTripExpenses = this.trips.map((trip) => {
-      let flightExpenses = trip.estimatedFlightCostPerPerson * trip.travelers
-      let lodgingExpenses = trip.estimatedLodgingCostPerDay * trip.duration
-      let expensesObj = {
-        tripFlightExpense: flightExpenses,
-        tripLodgingExpense: lodgingExpenses
-      }
-      return expensesObj
+    console.log('trips', this.trips)
+    const filteredTripsByYear = this.trips.filter(trip => {
+      return trip.date.includes("2020")
     })
 
-    const totalExpense = allTripExpenses.reduce((acc, expense) => {
-      let tripTotal = expense.tripFlightExpense + expense.tripLodgingExpense
-      acc += tripTotal
-      return acc
+    console.log('filtered by year', filteredTripsByYear)
+    const result = filteredTripsByYear.reduce((acc, trip) => {
+      let totalFlightCost = trip.estimatedFlightCostPerPerson * trip.travelers
+      console.log('flight cost', totalFlightCost)
+      let totalLodgingCost = trip.estimatedLodgingCostPerDay * trip.duration
+      console.log('lodging cost', totalLodgingCost)
+      let totalCost = totalFlightCost + totalLodgingCost
+      console.log('total', totalCost)
+      return acc += totalCost
     }, 0)
 
-    const fee = totalExpense * .10
-    const grandTotal = totalExpense + fee
+    console.log('result', result)
+    let fee = result * .10
+    let grandTotal = result + fee
+    console.log('grandTotal', grandTotal)
     return grandTotal
   }
 }
