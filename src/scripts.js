@@ -9,7 +9,7 @@ import './images/turing-logo.png'
 
 // console.log('This is the JavaScript entry file - your code begins here.');
 
-import { getTraveler, getTrips, getDestinations } from './apiCalls.js'
+import { getTraveler, getTrips, getDestinations, addTripRequest } from './apiCalls.js'
 import Traveler from './Traveler.js'
 import domUpdates from './domUpdates.js'
 
@@ -50,6 +50,9 @@ function loadTravelerData(id) {
 // triggers the GET request for the data
 loadTravelerData(2);
 
+//
+addNewTripRequest()
+
 
 function filterTripsByUserId(trips, travelerId) {
   const filteredTrips = trips.filter(trip => {
@@ -82,6 +85,21 @@ function findDestinationsByDestId(destinations, filteredTrips) {
   return result
 }
 
+function addNewTripRequest() {
+  const newTripRequest = {
+		id: 2000,
+		userID: 1,
+		destinationID: 12,
+		travelers: 2,
+		date: "2022/03/04",
+		duration: 8,
+		status: "pending",
+		suggestedActivities: []
+  }
+
+  addTripRequest(newTripRequest)
+  // after making the request, check if the request was successful
+}
 
 // function randomId() {
 //   return Math.floor(Math.random() * 50);
