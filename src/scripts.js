@@ -41,6 +41,8 @@ function loadTravelerData(id) {
 
       const travelExpense = traveler.calcTotalExpensesForYear()
       domUpdates.displayTripExpense(travelExpense)
+
+      domUpdates.createDestinationList(data[2].destinations)
     })
 
 }

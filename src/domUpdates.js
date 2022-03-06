@@ -3,6 +3,7 @@ const welcomeTraveler = document.getElementById('welcomeTraveler');
 const tripWidgetSection = document.getElementById('tripWidgetSection');
 const tripDestination = document.getElementById('tripDestination');
 const totalExpense = document.getElementById('totalExpense');
+const destinationList = document.getElementById('destinationList');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
@@ -14,8 +15,15 @@ const domUpdates = {
     totalExpense.innerText = `${cost}`
   },
 
+  createDestinationList: function(destinations) {
+    console.log('test', destinations[0].destination)
+    destinations.forEach(destination => {
+      destinationList.innerHTML += `<option value="${destination.destination}">`
+    })
+  },
+
   displayTrips: function(trips) {
-    trips.forEach((trip) => {
+    trips.forEach(trip => {
       tripWidgetSection.innerHTML += `
       <section class="trip-widget" id="tripWidget">
         <div class="trip-image-container">
@@ -55,7 +63,7 @@ const domUpdates = {
       </section>
       `;
     });
-  }
-}
+  };
+};
 
 export default domUpdates;
