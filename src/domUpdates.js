@@ -60,10 +60,9 @@ const domUpdates = {
             <p class="trip-activities" id="tripActivities">${trip.suggestedActivities}</p>
           </div>
         </div>
-      </section>
-      `;
+      </section>`;
     });
-  };
+  }
 };
 
 export default domUpdates;
