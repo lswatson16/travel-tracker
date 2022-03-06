@@ -16,7 +16,6 @@ const domUpdates = {
   },
 
   createDestinationList: function(destinations) {
-    console.log('test', destinations[0].destination)
     destinations.forEach(destination => {
       destinationList.innerHTML += `<option value="${destination.destination}">`
     })

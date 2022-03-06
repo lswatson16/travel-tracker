@@ -25,25 +25,7 @@
           <p class="footnote-expense">Yearly total expense (includes travel agent's 10% fee)</p>
         </div>
       </section>
-      <section class="traveler-form-section">
-        <form class="traveler-form form" action="index.html" method="post" id="travelerForm">
-          <h2>Make A New Trip Request</h2>
-          <p class="hidden" id="currentTravelerId"></p>
-          <label for="date">Date</label>
-          <input class="traveler-input" type="date" name="date" id="requestDate" required></input>
-          <label for="travelDuration">Duration</label>
-          <input class="traveler-input" type="number" name="travelDuration" id="requestDuration" min="0" required></input>
-          <label for="numTravelers">Number of Travelers</label>
-          <input class="traveler-input" type="number" name="numTravelers" id="requestNumTravelers" min="0" required></input>
-          <label for="travelDestinations">Choose a Destinations</label>
-          <input class="traveler-input" list="destinations" name="travelDestinations" id="travelDestinations" required></input>
-          <datalist id="destinationList">
-            <!-- dynamically create the list of options -->
-            <!-- <option value="Peru"> -->
-          </datalist>
-          <button class="button" type="submit" id="submitTripRequest">Submit</button>
-        </form>
-      </section>
+
       <section class="traveler-trips-section">
         <h2 class="header-trips">Trips</h2>
         <div class="filter-buttons-container">
@@ -57,6 +39,27 @@
         </section>
       </section>
     </section>
+
+    <section class="traveler-form-section">
+      <form class="traveler-form form" action="index.html" method="post" id="travelerForm">
+        <h2>Make A New Trip Request</h2>
+        <p class="hidden" id="currentTravelerId"></p>
+        <label for="date">Date</label>
+        <input class="traveler-input" type="date" name="date" id="requestDate" required></input>
+        <label for="travelDuration">Duration</label>
+        <input class="traveler-input" type="number" name="travelDuration" id="requestDuration" min="0" required></input>
+        <label for="numTravelers">Number of Travelers</label>
+        <input class="traveler-input" type="number" name="numTravelers" id="requestNumTravelers" min="0" required></input>
+        <label for="travelDestinations">Choose a Destinations</label>
+        <input class="traveler-input" list="destinationList" name="travelDestinations" id="travelDestinations" required></input>
+        <datalist id="destinationList">
+          <!-- dynamically create the list of options -->
+          <!-- <option value="Peru"> -->
+        </datalist>
+        <button class="button" type="submit" id="submitTripRequest">Submit</button>
+      </form>
+    </section>
+
   </main>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
