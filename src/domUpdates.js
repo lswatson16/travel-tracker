@@ -4,6 +4,12 @@ const tripWidgetSection = document.getElementById('tripWidgetSection');
 const tripDestination = document.getElementById('tripDestination');
 const totalExpense = document.getElementById('totalExpense');
 const destinationList = document.getElementById('destinationList');
+const travelerForm = document.getElementById('travelerForm');
+
+const requestedDate = document.getElementById('requestedDate');
+const requestedDuration = document.getElementById('requestedDuration');
+const requestedNumTravelers = document.getElementById('requestedNumTravelers');
+// const requestedDestination = document.getElementById('requestedDestination');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
@@ -17,7 +23,7 @@ const domUpdates = {
 
   createDestinationList: function(destinations) {
     destinations.forEach(destination => {
-      destinationList.innerHTML += `<option value="${destination.destination}">`
+      destinationList.innerHTML += `<option value="${destination.id}">${destination.destination}</option>`
     })
   },
 

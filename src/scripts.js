@@ -17,7 +17,7 @@ import domUpdates from './domUpdates.js'
 let traveler;
 
 // -------------------Event Handlers-------------------------
-
+travelerForm.addEventListener('submit', addNewTripRequest)
 // -------------------Functions-------------------------
 
 
@@ -43,6 +43,7 @@ function loadTravelerData(id) {
       domUpdates.displayTripExpense(travelExpense)
 
       domUpdates.createDestinationList(data[2].destinations)
+      // findDestinationId(data[2].destinations)
     })
 
 }
@@ -50,8 +51,8 @@ function loadTravelerData(id) {
 // triggers the GET request for the data
 loadTravelerData(2);
 
-//
-addNewTripRequest()
+// triggers the POST request to add new trip
+// addNewTripRequest()
 
 
 function filterTripsByUserId(trips, travelerId) {
@@ -85,21 +86,64 @@ function findDestinationsByDestId(destinations, filteredTrips) {
   return result
 }
 
-function addNewTripRequest() {
+function addNewTripRequest(e) {
+  // prevents the default behavior of the form
+  e.preventDefault();
+  console.log('travelers>>>', requestedNumTravelers.value)
+  console.log('parse int travelers>>>', parseInt(requestedNumTravelers.value))
+  console.log('date', requestedDate.value.split('-').join('/'))
+  console.log('duration', requestedDuration.value)
+  console.log('parse int duration', parseInt(requestedDuration.value))
+  console.log('traveler id', traveler.id)
+  console.log('dest id>>>>>>', destinationList.options[destinationList.selectedIndex].value)
+  console.log('parse int dest id>>>>>>', parseInt(destinationList.options[destinationList.selectedIndex].value))
+  // console.log('destination', requestedDestination.value)
+  const newTripRequestId = getRandomNum(400, 500)
+  console.log(Math.round(newTripRequestId))
+
   const newTripRequest = {
-		id: 2000,
-		userID: 1,
-		destinationID: 12,
-		travelers: 2,
-		date: "2022/03/04",
-		duration: 8,
+		id: Math.round(newTripRequestId),
+		userID: traveler.id,
+		destinationID: parseInt(destinationList.options[destinationList.selectedIndex].value),
+		travelers: parseInt(requestedNumTravelers.value),
+		date: requestedDate.value.split('-').join('/'),
+		duration: parseInt(requestedDuration.value),
 		status: "pending",
 		suggestedActivities: []
   }
+  console.log('new trip>>>>', newTripRequest)
 
-  addTripRequest(newTripRequest)
   // after making the request, check if the request was successful
+  addTripRequest(newTripRequest)
+    .then(data => {
+      console.log(data)
+      return data
+    })
+    .catch(err => {
+      console.log('err in scripts', err)
+    })
+
+  travelerForm.reset();
 }
+
+function getRandomNum(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+
+
+// function findDestinationId(destinations) {
+//   console.log('dest', destinations)
+//   const foundId = destinations.find(destination => {
+//     console.log('dest', destination)
+//     if (destination.destination === requestedDestination.value) {
+//       return destination.id
+//     }
+//   })
+//   console.log('found id', foundId)
+//   return foundId
+// }
+
 
 // function randomId() {
 //   return Math.floor(Math.random() * 50);

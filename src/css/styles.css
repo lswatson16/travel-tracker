@@ -147,7 +147,8 @@ nav {
   text-align: center;
 }
 
-.traveler-input {
+.traveler-input,
+.destination-list {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
