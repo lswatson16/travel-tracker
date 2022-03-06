@@ -48,7 +48,8 @@ function loadTravelerData(id) {
       traveler.trips = detailedTrips
       domUpdates.displayTrips(traveler.trips)
 
-      traveler.calcTotalExpensesForYear()
+      const travelExpense = traveler.calcTotalExpensesForYear()
+      domUpdates.displayTripExpense(travelExpense)
     })
 
 }

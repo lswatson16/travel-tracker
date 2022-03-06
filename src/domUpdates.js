@@ -1,12 +1,17 @@
 // -------------------QUERY SELECTORS-------------------------
 const welcomeTraveler = document.getElementById('welcomeTraveler');
-const tripWidgetSection = document.getElementById('tripWidgetSection')
-const tripDestination = document.getElementById('tripDestination')
+const tripWidgetSection = document.getElementById('tripWidgetSection');
+const tripDestination = document.getElementById('tripDestination');
+const totalExpense = document.getElementById('totalExpense');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
   updateTitle: function(text) {
     welcomeTraveler.innerText = `Welcome ${text}`
+  },
+
+  displayTripExpense: function(cost) {
+    totalExpense.innerText = `${cost}`
   },
 
   displayTrips: function(trips) {

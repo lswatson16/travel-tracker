@@ -12,10 +12,10 @@ class Traveler {
     const allTripExpenses = this.trips.map((trip) => {
       let expensesObj = {}
       let flightExpenses = trip.estimatedFlightCostPerPerson * trip.travelers
-      console.log('flight cost', flightExpenses)
+      // console.log('flight cost', flightExpenses)
 
       let lodgingExpenses = trip.estimatedLodgingCostPerDay * trip.duration
-      console.log('lodging cost', lodgingExpenses)
+      // console.log('lodging cost', lodgingExpenses)
 
       expensesObj = {
         tripFlightExpense: flightExpenses,
@@ -38,6 +38,8 @@ class Traveler {
     const grandTotal = totalExpense + fee
     console.log(fee)
     console.log(grandTotal)
+    // return Math.ceil(grandTotal * 100) / 100
+    // return Math.round(grandTotal)
     return grandTotal
 
   }
