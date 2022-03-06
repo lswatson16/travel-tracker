@@ -6,10 +6,10 @@ class Traveler {
     this.trips = [];
   }
 
-  calcTotalExpensesForYear() {
+  calcTotalExpensesForYear(year) {
     let fee, grandTotal;
     const filteredTripsByYear = this.trips.filter(trip => {
-      return trip.date.includes("2020");
+      return trip.date.includes(year);
     });
 
     const result = filteredTripsByYear.reduce((acc, trip) => {

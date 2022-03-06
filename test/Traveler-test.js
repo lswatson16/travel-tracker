@@ -51,6 +51,7 @@ describe('Traveler', () => {
       }
     ]);
 
-    expect(traveler.calcTotalExpensesForYear()).to.equal(4125);
+    expect(traveler.calcTotalExpensesForYear('2020')).to.equal(0);
+    expect(traveler.calcTotalExpensesForYear('2021')).to.equal(4125);
   });
 });
