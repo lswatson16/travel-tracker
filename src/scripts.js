@@ -44,9 +44,11 @@ function loadTravelerData(id) {
       console.log(traveler)
 
 
-      const detailedTrips = filterDestinationsByDestId(data[2].destinations, travelerTrips)
+      const detailedTrips = findDestinationsByDestId(data[2].destinations, travelerTrips)
       traveler.trips = detailedTrips
       domUpdates.displayTrips(traveler.trips)
+
+      traveler.calcTotalExpensesForYear()
     })
 
 }
@@ -56,7 +58,6 @@ loadTravelerData(2);
 
 
 function filterTripsByUserId(trips, travelerId) {
-  // console.log('test', trips)
   const filteredTrips = trips.filter(trip => {
     return trip.userID === travelerId;
   })
@@ -64,15 +65,12 @@ function filterTripsByUserId(trips, travelerId) {
   return filteredTrips
 }
 
-function filterDestinationsByDestId(destinations, filteredTrips) {
-  console.log('hello', destinations)
-  console.log('hiiii', filteredTrips)
+function findDestinationsByDestId(destinations, filteredTrips) {
   const result = filteredTrips.map(trip => {
 
     const foundDestination = destinations.find(destination => {
       return destination.id === trip.destinationID
     })
-    console.log('testing', foundDestination)
 
     let obj = {
       image: foundDestination.image,
