@@ -89,20 +89,10 @@ function findDestinationsByDestId(destinations, filteredTrips) {
 function addNewTripRequest(e) {
   // prevents the default behavior of the form
   e.preventDefault();
-  console.log('travelers>>>', requestedNumTravelers.value)
-  console.log('parse int travelers>>>', parseInt(requestedNumTravelers.value))
-  console.log('date', requestedDate.value.split('-').join('/'))
-  console.log('duration', requestedDuration.value)
-  console.log('parse int duration', parseInt(requestedDuration.value))
-  console.log('traveler id', traveler.id)
-  console.log('dest id>>>>>>', destinationList.options[destinationList.selectedIndex].value)
-  console.log('parse int dest id>>>>>>', parseInt(destinationList.options[destinationList.selectedIndex].value))
-  // console.log('destination', requestedDestination.value)
-  const newTripRequestId = getRandomNum(400, 500)
-  console.log(Math.round(newTripRequestId))
+  const newTripRequestId = Math.round(getRandomNum(400, 500))
 
   const newTripRequest = {
-		id: Math.round(newTripRequestId),
+		id: newTripRequestId,
 		userID: traveler.id,
 		destinationID: parseInt(destinationList.options[destinationList.selectedIndex].value),
 		travelers: parseInt(requestedNumTravelers.value),
@@ -129,21 +119,6 @@ function addNewTripRequest(e) {
 function getRandomNum(min, max) {
   return Math.random() * (max - min) + min;
 }
-
-
-
-// function findDestinationId(destinations) {
-//   console.log('dest', destinations)
-//   const foundId = destinations.find(destination => {
-//     console.log('dest', destination)
-//     if (destination.destination === requestedDestination.value) {
-//       return destination.id
-//     }
-//   })
-//   console.log('found id', foundId)
-//   return foundId
-// }
-
 
 // function randomId() {
 //   return Math.floor(Math.random() * 50);
