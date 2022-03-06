@@ -13,24 +13,15 @@ import { getTraveler, getTrips, getDestinations } from './apiCalls.js'
 import Traveler from './Traveler.js'
 import domUpdates from './domUpdates.js'
 
-// -------------------EVENT HANDLERS-------------------------
-
-// -------------------FUNCTIONS-------------------------
-
+// -------------------Global Variables-------------------------
 let traveler;
 
+// -------------------Event Handlers-------------------------
+
+// -------------------Functions-------------------------
+
+
 function loadTravelerData(id) {
-  // getTraveler(id)
-    // .then(data => {
-    //   traveler = new Traveler(data.id, data.name, data.travelerType)
-    //   domUpdates.updateTitle(traveler.name)
-    // })
-
-  // getTrips()
-    // .then(data => {
-    //   console.log('get trips data', data)
-    // })
-
   Promise.all([getTraveler(id), getTrips(), getDestinations()])
     .then(data => {
       // console.log('promise data', data)
@@ -54,7 +45,7 @@ function loadTravelerData(id) {
 
 }
 
-// triggers the GET request for single traveler
+// triggers the GET request for the data
 loadTravelerData(2);
 
 
@@ -62,7 +53,6 @@ function filterTripsByUserId(trips, travelerId) {
   const filteredTrips = trips.filter(trip => {
     return trip.userID === travelerId;
   })
-  console.log('filter trips', filteredTrips)
   return filteredTrips
 }
 
@@ -87,7 +77,6 @@ function findDestinationsByDestId(destinations, filteredTrips) {
     }
     return obj
   })
-  console.log('result', result)
   return result
 }
 

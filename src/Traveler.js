@@ -32,15 +32,11 @@ class Traveler {
       return acc
     }, 0)
 
-    console.log('total', totalExpense)
-
     const fee = totalExpense * .10
     const grandTotal = totalExpense + fee
-    console.log(fee)
-    console.log(grandTotal)
+    return grandTotal
     // return Math.ceil(grandTotal * 100) / 100
     // return Math.round(grandTotal)
-    return grandTotal
 
   }
 }
