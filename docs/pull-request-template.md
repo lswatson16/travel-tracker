@@ -7,7 +7,7 @@ Summarize what this PR did. Did these changes fix any issues? Explain.
 * [ ] Breaking change (fix or feature that would cause the existing functionality to no longer work as expected)
 
 # How has this been tested?
-* [ ] Run the app in the browser using the command `open index.html`
+* [ ] Run the app in the browser
 * [ ] Troubleshooting `console.log()`
 * [ ] Run the command `npm test` in the terminal
 * [ ] Developer Tools
