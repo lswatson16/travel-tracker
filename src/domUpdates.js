@@ -8,6 +8,8 @@ const travelerForm = document.getElementById('travelerForm');
 const requestedDate = document.getElementById('requestedDate');
 const requestedDuration = document.getElementById('requestedDuration');
 const requestedNumTravelers = document.getElementById('requestedNumTravelers');
+const estimateBtn = document.getElementById('estimateBtn');
+const estimatedCost = document.getElementById('estimatedCost');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
@@ -65,6 +67,14 @@ const domUpdates = {
         </div>
       </section>`;
     });
+  },
+
+  displayEstimatedCost: function(cost) {
+      estimatedCost.innerText = `Estimated Cost: ${cost}`
+  },
+
+  resetInnerHTML: function(element) {
+      element.innerText = ``
   }
 };
 

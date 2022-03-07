@@ -14,12 +14,12 @@ import Traveler from './Traveler.js'
 import domUpdates from './domUpdates.js'
 
 // -------------------Global Variables-------------------------
-let traveler;
+let traveler, destinations;
 
 // -------------------Event Handlers-------------------------
 travelerForm.addEventListener('submit', addNewTripRequest)
+estimateBtn.addEventListener('click', getEstimatedCost)
 // -------------------Functions-------------------------
-
 
 function loadTravelerData(id) {
   Promise.all([getTraveler(id), getTrips(), getDestinations()])
@@ -30,10 +30,10 @@ function loadTravelerData(id) {
       console.log('destination data', data[2])
 
       traveler = new Traveler(data[0].id, data[0].name, data[0].travelerType)
+      destinations = data[2].destinations
       domUpdates.updateTitle(traveler.name)
       const travelerTrips = filterTripsByUserId(data[1].trips, data[0].id)
       console.log(traveler)
-
 
       const detailedTrips = findDestinationsByDestId(data[2].destinations, travelerTrips)
       traveler.trips = detailedTrips
@@ -43,17 +43,12 @@ function loadTravelerData(id) {
       domUpdates.displayTripExpense(travelExpense)
 
       domUpdates.createDestinationList(data[2].destinations)
-      // findDestinationId(data[2].destinations)
     })
 
 }
 
 // triggers the GET request for the data
 loadTravelerData(2);
-
-// triggers the POST request to add new trip
-// addNewTripRequest()
-
 
 function filterTripsByUserId(trips, travelerId) {
   const filteredTrips = trips.filter(trip => {
@@ -64,7 +59,6 @@ function filterTripsByUserId(trips, travelerId) {
 
 function findDestinationsByDestId(destinations, filteredTrips) {
   const result = filteredTrips.map(trip => {
-
     const foundDestination = destinations.find(destination => {
       return destination.id === trip.destinationID
     })
@@ -86,11 +80,9 @@ function findDestinationsByDestId(destinations, filteredTrips) {
   return result
 }
 
-function addNewTripRequest(e) {
-  // prevents the default behavior of the form
-  e.preventDefault();
+function getNewTripRequest() {
+  // e.preventDefault();
   const newTripRequestId = Math.round(getRandomNum(400, 500))
-
   const newTripRequest = {
 		id: newTripRequestId,
 		userID: traveler.id,
@@ -102,9 +94,17 @@ function addNewTripRequest(e) {
 		suggestedActivities: []
   }
   console.log('new trip>>>>', newTripRequest)
+  return newTripRequest
+}
+
+function addNewTripRequest(e) {
+  // prevents the default behavior of the form
+  e.preventDefault();
+  domUpdates.resetInnerHTML(estimatedCost)
+  const newTripRequested = getNewTripRequest()
 
   // after making the request, check if the request was successful
-  addTripRequest(newTripRequest)
+  addTripRequest(newTripRequested)
     .then(data => {
       console.log(data)
       return data
@@ -118,6 +118,21 @@ function addNewTripRequest(e) {
 
 function getRandomNum(min, max) {
   return Math.random() * (max - min) + min;
+}
+
+function getEstimatedCost() {
+  const trip = getNewTripRequest()
+  console.log('destinations', destinations)
+  console.log('trip', trip)
+  const foundDestination = destinations.find(destination => destination.id === trip.destinationID)
+  console.log('test', foundDestination)
+  const totalCost = (foundDestination.estimatedLodgingCostPerDay * trip.duration) + (foundDestination.estimatedFlightCostPerPerson * trip.travelers)
+  console.log(totalCost)
+  const fee = totalCost * .10
+  console.log('fee', fee)
+  const grandTotal = totalCost + fee
+  domUpdates.displayEstimatedCost(grandTotal)
+  return grandTotal
 }
 
 // function randomId() {
