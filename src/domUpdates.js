@@ -77,11 +77,19 @@ const domUpdates = {
   },
 
   displayEstimatedCost: function(cost) {
-      estimatedCost.innerText = `Estimated Cost: $${cost}`
+    estimatedCost.innerText = `Estimated Cost: $${cost}`
+  },
+
+  updateMinToToday: function(date) {
+    requestedDate.setAttribute('min', date)
   },
 
   displayEmptyStateError: function() {
     window.alert('Please fill out all fields to get a new quote')
+  },
+
+  displayDateError: function() {
+    window.alert('Please select a date that is not in the past')
   },
 
   displayEstimateErrorNumTravelers: function() {
@@ -89,7 +97,7 @@ const domUpdates = {
   },
 
   resetInnerHTML: function(element) {
-      element.innerText = ``
+    element.innerText = ``
   },
 
   showSection: function(element) {

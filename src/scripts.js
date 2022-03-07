@@ -102,18 +102,39 @@ function getEstimatedCost() {
   const grandTotal = totalCost + fee
   // console.log('grand total', grandTotal)
 
+  const today = getTodaysDate();
+
   const chosenDestination = destinationList.options[destinationList.selectedIndex].value
   if (!requestedDate.value || !requestedDuration.value || !requestedNumTravelers.value || !chosenDestination) {
     domUpdates.displayEmptyStateError()
   } else if (requestedNumTravelers.value >10) {
     domUpdates.displayEstimateErrorNumTravelers()
-
+  } else if(requestedDate.value < today) {
+      domUpdates.displayDateError()
   } else {
     domUpdates.displayEstimatedCost(grandTotal)
     domUpdates.showSection(submitTripRequest)
     return grandTotal
   }
+}
 
+function getTodaysDate() {
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth()+1;
+  let yyyy = today.getFullYear();
+
+  if (dd < 10) {
+    dd = '0' + dd
+  }
+
+  if (mm < 10) {
+    mm = '0' + mm
+  }
+
+  today = yyyy + '-' + mm + '-' + dd;
+  domUpdates.updateMinToToday(today)
+  return today
 }
 
 function addNewTripRequest(e) {
