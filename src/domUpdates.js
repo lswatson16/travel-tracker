@@ -25,7 +25,7 @@ const domUpdates = {
   },
 
   displayTripExpense: function(cost) {
-    totalExpense.innerText = `${cost}`
+    totalExpense.innerText = `$${cost}`
   },
 
   createDestinationList: function(destinations) {
