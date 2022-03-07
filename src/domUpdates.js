@@ -77,7 +77,11 @@ const domUpdates = {
   },
 
   displayEstimatedCost: function(cost) {
-      estimatedCost.innerText = `Estimated Cost: ${cost}`
+      estimatedCost.innerText = `Estimated Cost: $${cost}`
+  },
+
+  displayEstimateError: function() {
+    window.alert('Please fill out all fields to get a new quote')
   },
 
   resetInnerHTML: function(element) {
@@ -91,7 +95,6 @@ const domUpdates = {
   hideSection: function(element) {
     element.classList.add('hidden');
   }
-
 };
 
 export default domUpdates;

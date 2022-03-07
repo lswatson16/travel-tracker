@@ -84,7 +84,6 @@ function findDestinationsByDestId(destinations, filteredTrips) {
 }
 
 function getNewTripRequest() {
-  // e.preventDefault();
   const newTripRequestId = Math.round(getRandomNum(400, 500))
   const newTripRequest = {
 		id: newTripRequestId,
@@ -98,6 +97,26 @@ function getNewTripRequest() {
   }
   console.log('new trip>>>>', newTripRequest)
   return newTripRequest
+}
+
+function getEstimatedCost() {
+  const trip = getNewTripRequest()
+  const foundDestination = destinations.find(destination => destination.id === trip.destinationID)
+  const totalCost = (foundDestination.estimatedLodgingCostPerDay * trip.duration) + (foundDestination.estimatedFlightCostPerPerson * trip.travelers)
+  const fee = totalCost * .10
+  const grandTotal = totalCost + fee
+  console.log('grand total', grandTotal)
+
+  const chosenDestination = destinationList.options[destinationList.selectedIndex].value
+  if (!requestedDate.value || !requestedDuration.value || !requestedNumTravelers.value || !chosenDestination) {
+    console.log('noooo')
+    domUpdates.displayEstimateError()
+  } else {
+    domUpdates.displayEstimatedCost(grandTotal)
+    domUpdates.showSection(submitTripRequest)
+  }
+
+  return grandTotal
 }
 
 function addNewTripRequest(e) {
@@ -124,22 +143,6 @@ function getRandomNum(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function getEstimatedCost() {
-  const trip = getNewTripRequest()
-  console.log('destinations', destinations)
-  console.log('trip', trip)
-  const foundDestination = destinations.find(destination => destination.id === trip.destinationID)
-  console.log('test', foundDestination)
-  const totalCost = (foundDestination.estimatedLodgingCostPerDay * trip.duration) + (foundDestination.estimatedFlightCostPerPerson * trip.travelers)
-  console.log(totalCost)
-  const fee = totalCost * .10
-  console.log('fee', fee)
-  const grandTotal = totalCost + fee
-  domUpdates.displayEstimatedCost(grandTotal)
-  domUpdates.showSection(submitTripRequest)
-  return grandTotal
-}
-
 function viewTravelerForm() {
   console.log('clicked>>>>>')
   domUpdates.showSection(travelerFormSection)
@@ -150,8 +153,9 @@ function viewTravelerForm() {
 
 function returnToMain() {
   console.log('clicked>>>>>')
-  domUpdates.resetInnerHTML(estimatedCost)
   domUpdates.showSection(travelerInfoSection)
   domUpdates.showSection(travelerTripsSection)
   domUpdates.hideSection(travelerFormSection)
+  domUpdates.resetInnerHTML(estimatedCost)
+  travelerForm.reset();
 }
