@@ -80,8 +80,12 @@ const domUpdates = {
       estimatedCost.innerText = `Estimated Cost: $${cost}`
   },
 
-  displayEstimateError: function() {
+  displayEmptyStateError: function() {
     window.alert('Please fill out all fields to get a new quote')
+  },
+
+  displayEstimateErrorNumTravelers: function() {
+    window.alert('Sorry, you can only book for a max number of 10 travelers')
   },
 
   resetInnerHTML: function(element) {

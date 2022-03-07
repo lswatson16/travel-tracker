@@ -110,19 +110,24 @@ function getEstimatedCost() {
   const chosenDestination = destinationList.options[destinationList.selectedIndex].value
   if (!requestedDate.value || !requestedDuration.value || !requestedNumTravelers.value || !chosenDestination) {
     console.log('noooo')
-    domUpdates.displayEstimateError()
+    domUpdates.displayEmptyStateError()
+  } else if (requestedNumTravelers.value >10) {
+    console.log('noooo')
+    domUpdates.displayEstimateErrorNumTravelers()
+
   } else {
     domUpdates.displayEstimatedCost(grandTotal)
     domUpdates.showSection(submitTripRequest)
+    return grandTotal
   }
 
-  return grandTotal
 }
 
 function addNewTripRequest(e) {
   // prevents the default behavior of the form
   e.preventDefault();
   domUpdates.resetInnerHTML(estimatedCost)
+
   const newTripRequested = getNewTripRequest()
 
   // after making the request, check if the request was successful
