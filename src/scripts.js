@@ -27,16 +27,12 @@ returnToMainBtn.addEventListener('click', returnToMain)
 function loadTravelerData(id) {
   Promise.all([getTraveler(id), getTrips(), getDestinations()])
     .then(data => {
-      // console.log('promise data', data)
-      console.log('traveler data', data[0])
-      console.log('trip data', data[1])
-      console.log('destination data', data[2])
 
       traveler = new Traveler(data[0].id, data[0].name, data[0].travelerType)
       destinations = data[2].destinations
       domUpdates.updateTitle(traveler.name)
       const travelerTrips = filterTripsByUserId(data[1].trips, data[0].id)
-      console.log(traveler)
+      // console.log(traveler)
 
       const detailedTrips = findDestinationsByDestId(data[2].destinations, travelerTrips)
       traveler.trips = detailedTrips
@@ -47,7 +43,6 @@ function loadTravelerData(id) {
 
       domUpdates.createDestinationList(data[2].destinations)
     })
-
 }
 
 // triggers the GET request for the data
@@ -95,7 +90,7 @@ function getNewTripRequest() {
 		status: "pending",
 		suggestedActivities: []
   }
-  console.log('new trip>>>>', newTripRequest)
+  // console.log('new trip>>>>', newTripRequest)
   return newTripRequest
 }
 
@@ -105,14 +100,12 @@ function getEstimatedCost() {
   const totalCost = (foundDestination.estimatedLodgingCostPerDay * trip.duration) + (foundDestination.estimatedFlightCostPerPerson * trip.travelers)
   const fee = totalCost * .10
   const grandTotal = totalCost + fee
-  console.log('grand total', grandTotal)
+  // console.log('grand total', grandTotal)
 
   const chosenDestination = destinationList.options[destinationList.selectedIndex].value
   if (!requestedDate.value || !requestedDuration.value || !requestedNumTravelers.value || !chosenDestination) {
-    console.log('noooo')
     domUpdates.displayEmptyStateError()
   } else if (requestedNumTravelers.value >10) {
-    console.log('noooo')
     domUpdates.displayEstimateErrorNumTravelers()
 
   } else {
@@ -149,7 +142,6 @@ function getRandomNum(min, max) {
 }
 
 function viewTravelerForm() {
-  console.log('clicked>>>>>')
   domUpdates.showSection(travelerFormSection)
   domUpdates.hideSection(travelerTripsSection)
   domUpdates.hideSection(travelerInfoSection)
@@ -157,7 +149,6 @@ function viewTravelerForm() {
 }
 
 function returnToMain() {
-  console.log('clicked>>>>>')
   domUpdates.showSection(travelerInfoSection)
   domUpdates.showSection(travelerTripsSection)
   domUpdates.hideSection(travelerFormSection)

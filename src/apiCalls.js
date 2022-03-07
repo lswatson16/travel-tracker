@@ -22,7 +22,7 @@ const getDestinations = () => {
   return fetch('http://localhost:3001/api/v1/destinations')
     .then(response => response.json())
     .then(data => {
-      console.log('destination data', data)
+      // console.log('destination data', data)
       return data
     })
     .catch(err => console.log(err))
