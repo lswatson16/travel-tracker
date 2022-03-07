@@ -38,7 +38,7 @@ function loadTravelerData(id) {
       traveler.trips = detailedTrips
       domUpdates.displayTrips(traveler.trips)
 
-      const travelExpense = traveler.calcTotalExpensesForYear()
+      const travelExpense = traveler.calcTotalExpensesForYear('2020')
       domUpdates.displayTripExpense(travelExpense)
 
       domUpdates.createDestinationList(data[2].destinations)
