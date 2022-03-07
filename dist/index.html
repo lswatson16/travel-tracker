@@ -17,18 +17,18 @@
       <!-- <img src="./images/ishan-seefromthesky-WVziwa_DDwI-unsplash.jpg" alt="aeriel view of Rasdhoo Island in the Maldives"> -->
     <!-- </section> -->
     <section class="user-dashboard" id="userDashboard">
-      <h1 class="welcome-traveler" id="welcomeTraveler">Welcome traveler!</h1>
-      <section class="traveler-expense-section">
+      <section class="traveler-info-section" id="travelerInfoSection">
+        <h1 class="welcome-traveler" id="welcomeTraveler">Welcome traveler!</h1>
         <div class="expense-container">
           <p class="title-expense">View Your Yearly Expense Report</p>
           <p class="total-expense" id="totalExpense">$1200</p>
           <p class="footnote-expense">Yearly expense (includes travel agent's 10% fee)</p>
         </div>
+        <div class="trip-request-btn-container">
+          <button class="trip-request-btn" type="button" name="button" id="tripRequestBtn">Request A New Trip</button>
+        </div>
       </section>
-      <div class="trip-request-btn-container">
-        <button class="trip-request-btn" type="button" name="button">Request A New Trip</button>
-      </div>
-      <section class="traveler-trips-section">
+      <section class="traveler-trips-section" id="travelerTripsSection">
         <h2 class="header-trips">Trips</h2>
         <div class="filter-buttons-container">
           <button class="filter-button" type="button" name="button">All Trips</button>
@@ -41,7 +41,7 @@
         </section>
       </section>
     </section>
-    <section class="traveler-form-section">
+    <section class="traveler-form-section hidden" id="travelerFormSection">
       <form class="traveler-form form" id="travelerForm">
         <h2 class="travel-form-title">Make A New Trip Request</h2>
         <p class="hidden" id="travelFormMessage"></p>

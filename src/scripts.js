@@ -17,8 +17,11 @@ import domUpdates from './domUpdates.js'
 let traveler, destinations;
 
 // -------------------Event Handlers-------------------------
+// window.addEventListener('load', )
+tripRequestBtn.addEventListener('click', viewTravelerForm)
 travelerForm.addEventListener('submit', addNewTripRequest)
 estimateBtn.addEventListener('click', getEstimatedCost)
+returnToMainBtn.addEventListener('click', returnToMain)
 // -------------------Functions-------------------------
 
 function loadTravelerData(id) {
@@ -133,11 +136,22 @@ function getEstimatedCost() {
   console.log('fee', fee)
   const grandTotal = totalCost + fee
   domUpdates.displayEstimatedCost(grandTotal)
+  domUpdates.showSection(submitTripRequest)
   return grandTotal
 }
 
-// function randomId() {
-//   return Math.floor(Math.random() * 50);
-// };
-//
-// randomId();
+function viewTravelerForm() {
+  console.log('clicked>>>>>')
+  domUpdates.showSection(travelerFormSection)
+  domUpdates.hideSection(travelerTripsSection)
+  domUpdates.hideSection(travelerInfoSection)
+  domUpdates.hideSection(submitTripRequest)
+}
+
+function returnToMain() {
+  console.log('clicked>>>>>')
+  domUpdates.resetInnerHTML(estimatedCost)
+  domUpdates.showSection(travelerInfoSection)
+  domUpdates.showSection(travelerTripsSection)
+  domUpdates.hideSection(travelerFormSection)
+}

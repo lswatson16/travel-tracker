@@ -20,12 +20,6 @@ nav {
   font-size: 16px;
 }
 
-.sign-in-button {
-  background-color: #0284c7;
-  padding: 9px;
-  border-radius: 5px;
-}
-
 .welcome-traveler {
   font-size: 38px;
   text-align: center;
@@ -76,13 +70,12 @@ nav {
 }
 
 .filter-button:hover {
-  background-color: #0369a1;
+  background-color: #818cf8;
 }
 
 .trip-widget-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* overflow: scroll; */
   grid-gap: 20px;
   padding: 20px;
   width: 100%;
@@ -157,17 +150,21 @@ nav {
 .submit-trip-btn,
 .return-btn,
 .trip-request-btn,
-.estimate-cost-btn {
+.estimate-cost-btn,
+.sign-in-button {
   width: 30%;
   padding: 8px;
   align-self: center;
-  margin-bottom: 4px;
-  border-radius: 9px;
+  margin: 4px 0;
+  border-radius: 21px;
+  background-color: #818cf8;
+  font-weight: 400;
+  font-size: 17px;
 }
 
 .return-btn,
 .estimate-cost-btn {
-  width: 52%;
+  width: 60%;
 }
 
 .hidden {

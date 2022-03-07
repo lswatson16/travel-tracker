@@ -4,12 +4,19 @@ const tripWidgetSection = document.getElementById('tripWidgetSection');
 const tripDestination = document.getElementById('tripDestination');
 const totalExpense = document.getElementById('totalExpense');
 const destinationList = document.getElementById('destinationList');
+
+const tripRequestBtn = document.getElementById('tripRequestBtn');
 const travelerForm = document.getElementById('travelerForm');
 const requestedDate = document.getElementById('requestedDate');
 const requestedDuration = document.getElementById('requestedDuration');
 const requestedNumTravelers = document.getElementById('requestedNumTravelers');
 const estimateBtn = document.getElementById('estimateBtn');
 const estimatedCost = document.getElementById('estimatedCost');
+const returnToMainBtn = document.getElementById('returnToMainBtn');
+
+const travelerFormSection = document.getElementById('travelerFormSection');
+const travelerTripsSection = document.getElementById('travelerTripsSection');
+const travelerInfoSection = document.getElementById('travelerInfoSection');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
@@ -75,7 +82,16 @@ const domUpdates = {
 
   resetInnerHTML: function(element) {
       element.innerText = ``
+  },
+
+  showSection: function(element) {
+    element.classList.remove('hidden');
+  },
+
+  hideSection: function(element) {
+    element.classList.add('hidden');
   }
+
 };
 
 export default domUpdates;
