@@ -3,6 +3,20 @@ const welcomeTraveler = document.getElementById('welcomeTraveler');
 const tripWidgetSection = document.getElementById('tripWidgetSection');
 const tripDestination = document.getElementById('tripDestination');
 const totalExpense = document.getElementById('totalExpense');
+const destinationList = document.getElementById('destinationList');
+
+const tripRequestBtn = document.getElementById('tripRequestBtn');
+const travelerForm = document.getElementById('travelerForm');
+const requestedDate = document.getElementById('requestedDate');
+const requestedDuration = document.getElementById('requestedDuration');
+const requestedNumTravelers = document.getElementById('requestedNumTravelers');
+const estimateBtn = document.getElementById('estimateBtn');
+const estimatedCost = document.getElementById('estimatedCost');
+const returnToMainBtn = document.getElementById('returnToMainBtn');
+
+const travelerFormSection = document.getElementById('travelerFormSection');
+const travelerTripsSection = document.getElementById('travelerTripsSection');
+const travelerInfoSection = document.getElementById('travelerInfoSection');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
@@ -11,11 +25,17 @@ const domUpdates = {
   },
 
   displayTripExpense: function(cost) {
-    totalExpense.innerText = `${cost}`
+    totalExpense.innerText = `$${cost}`
+  },
+
+  createDestinationList: function(destinations) {
+    destinations.forEach(destination => {
+      destinationList.innerHTML += `<option value="${destination.id}">${destination.destination}</option>`
+    })
   },
 
   displayTrips: function(trips) {
-    trips.forEach((trip) => {
+    trips.forEach(trip => {
       tripWidgetSection.innerHTML += `
       <section class="trip-widget" id="tripWidget">
         <div class="trip-image-container">
@@ -52,10 +72,41 @@ const domUpdates = {
             <p class="trip-activities" id="tripActivities">${trip.suggestedActivities}</p>
           </div>
         </div>
-      </section>
-      `;
+      </section>`;
     });
+  },
+
+  displayEstimatedCost: function(cost) {
+    estimatedCost.innerText = `Estimated Cost: $${cost}`
+  },
+
+  updateMinToToday: function(date) {
+    requestedDate.setAttribute('min', date)
+  },
+
+  displayEmptyStateError: function() {
+    window.alert('Please fill out all fields to get a new quote')
+  },
+
+  displayDateError: function() {
+    window.alert('Please select a date that is not in the past')
+  },
+
+  displayEstimateErrorNumTravelers: function() {
+    window.alert('Sorry, you can only book for a max number of 10 travelers')
+  },
+
+  resetInnerHTML: function(element) {
+    element.innerText = ``
+  },
+
+  showSection: function(element) {
+    element.classList.remove('hidden');
+  },
+
+  hideSection: function(element) {
+    element.classList.add('hidden');
   }
-}
+};
 
 export default domUpdates;

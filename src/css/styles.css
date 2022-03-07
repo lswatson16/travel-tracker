@@ -20,19 +20,21 @@ nav {
   font-size: 16px;
 }
 
-.sign-in-button {
-  background-color: #0284c7;
-  padding: 9px;
-  border-radius: 5px;
+.traveler-info-section {
+  display: flex;
+  flex-direction: column;
 }
 
 .welcome-traveler {
   font-size: 38px;
   text-align: center;
+  margin-bottom: 69px;
 }
 
-.traveler-expense-section {
-  width: 16%;
+.expense-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 55px;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   background-color: rgb(250 250 249);
@@ -41,17 +43,13 @@ nav {
   border: solid #94a3b8 1px;
 }
 
-.expense-container{
+.trip-request-btn-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .title-expense {
   font-size: 18px;
-  align-self: flex-start;
-  font-size: 16px;
 }
 
 .total-expense {
@@ -69,19 +67,18 @@ nav {
 }
 
 .filter-button {
-  background-color: #0ea5e9;
-  padding: 4px;
+  background-color: rgb(250 250 249);
+  padding: 7px;
   border-radius: 4px;
 }
 
 .filter-button:hover {
-  background-color: #0369a1;
+  background-color: #818cf8;
 }
 
 .trip-widget-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  overflow: scroll;
   grid-gap: 20px;
   padding: 20px;
   width: 100%;
@@ -90,7 +87,7 @@ nav {
 }
 
 .trip-widget {
-  width: 52%;
+  width: 70%;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   background-color: rgb(250 250 249);
   border-radius: 18px;
@@ -115,7 +112,7 @@ nav {
 }
 
 .trip-destination {
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 .trip-details {
@@ -124,4 +121,67 @@ nav {
 
 .trip-detail-title {
   margin-right: 4px;
+}
+
+.trip-details p {
+  margin: 2px;
+}
+
+.traveler-form-section {
+  display: flex;
+  justify-content: center;
+}
+
+.traveler-form {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  border: black solid 1px;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background-color: rgb(250 250 249);
+}
+
+.travel-form-title {
+  text-align: center;
+}
+
+.traveler-input,
+.destination-list {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.submit-trip-btn,
+.return-btn,
+.trip-request-btn,
+.estimate-cost-btn,
+.sign-in-button {
+  width: 30%;
+  padding: 8px;
+  align-self: center;
+  margin: 4px 0;
+  border-radius: 21px;
+  background-color: #818cf8;
+  font-weight: 400;
+  font-size: 17px;
+}
+
+.trip-request-btn {
+  width: 16%;
+}
+
+.sign-in-button {
+  width: 5%;
+}
+
+.return-btn,
+.estimate-cost-btn {
+  width: 60%;
+}
+
+.hidden {
+  display: none;
 }
