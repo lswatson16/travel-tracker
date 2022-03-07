@@ -156,7 +156,8 @@ nav {
 
 .submit-trip-btn,
 .return-btn,
-.trip-request-btn {
+.trip-request-btn,
+.estimate-cost-btn {
   width: 30%;
   padding: 8px;
   align-self: center;
@@ -164,8 +165,9 @@ nav {
   border-radius: 9px;
 }
 
-.return-btn {
-  width: 40%;
+.return-btn,
+.estimate-cost-btn {
+  width: 52%;
 }
 
 .hidden {
