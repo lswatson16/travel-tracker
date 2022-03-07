@@ -107,6 +107,7 @@ function addNewTripRequest(e) {
   addTripRequest(newTripRequested)
     .then(data => {
       console.log(data)
+      loadTravelerData(2);
       return data
     })
     .catch(err => {
