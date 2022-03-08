@@ -18,10 +18,8 @@ let traveler, destinations;
 
 // -------------------Event Handlers-------------------------
 // window.addEventListener('load', )
-// tripRequestBtn.addEventListener('click', viewTravelerForm)
 travelerForm.addEventListener('submit', addNewTripRequest)
 estimateBtn.addEventListener('click', getEstimatedCost)
-// returnToMainBtn.addEventListener('click', returnToMain)
 logInBtn.addEventListener('click', checkLogInCredentials)
 signOutBtn.addEventListener('click', showLogInSection)
 // -------------------Functions-------------------------
@@ -150,7 +148,6 @@ function addNewTripRequest(e) {
   addTripRequest(newTripRequested)
     .then(data => {
       console.log(data)
-      // loadTravelerData(2);
       loadTravelerData(traveler.id)
       return data
     })
@@ -165,21 +162,6 @@ function getRandomNum(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-// function viewTravelerForm() {
-//   domUpdates.showSection(travelerFormSection)
-//   domUpdates.hideSection(travelerTripsSection)
-//   domUpdates.hideSection(travelerInfoSection)
-//   domUpdates.hideSection(submitTripRequest)
-// }
-
-// function returnToMain() {
-//   domUpdates.showSection(travelerInfoSection)
-//   domUpdates.showSection(travelerTripsSection)
-//   domUpdates.hideSection(travelerFormSection)
-//   domUpdates.resetInnerHTML(estimatedCost)
-//   travelerForm.reset();
-// }
-
 function checkLogInCredentials() {
   const id = username.value.slice(8)
   console.log(username.value)
@@ -189,11 +171,6 @@ function checkLogInCredentials() {
 
     hideLogInSection()
     loadTravelerData(id)
-    // domUpdates.showSection(travelerInfoSection)
-    // domUpdates.showSection(travelerTripsSection)
-    // domUpdates.showSection(travelerFormSection)
-    // domUpdates.showSection(signOutBtn)
-    // domUpdates.hideSection(logInSection)
     logInForm.reset()
     return id
   } else {
