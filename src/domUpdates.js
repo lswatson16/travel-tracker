@@ -18,6 +18,11 @@ const travelerFormSection = document.getElementById('travelerFormSection');
 const travelerTripsSection = document.getElementById('travelerTripsSection');
 const travelerInfoSection = document.getElementById('travelerInfoSection');
 
+const logInForm = document.getElementById('logInForm');
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+const logInBtn = document.getElementById('logInBtn');
+
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
   updateTitle: function(text) {
@@ -95,6 +100,10 @@ const domUpdates = {
 
   displayEstimateErrorNumTravelers: function() {
     window.alert('Sorry, you can only book for a max number of 10 travelers')
+  },
+
+  displayInvalidLogIn: function() {
+    window.alert('Sorry, please enter a valid username and password')
   },
 
   resetInnerHTML: function(element) {

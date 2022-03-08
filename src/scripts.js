@@ -18,10 +18,11 @@ let traveler, destinations;
 
 // -------------------Event Handlers-------------------------
 // window.addEventListener('load', )
-tripRequestBtn.addEventListener('click', viewTravelerForm)
+// tripRequestBtn.addEventListener('click', viewTravelerForm)
 travelerForm.addEventListener('submit', addNewTripRequest)
 estimateBtn.addEventListener('click', getEstimatedCost)
 returnToMainBtn.addEventListener('click', returnToMain)
+logInBtn.addEventListener('click', checkLogInCredentials)
 // -------------------Functions-------------------------
 
 function loadTravelerData(id) {
@@ -46,7 +47,7 @@ function loadTravelerData(id) {
 }
 
 // triggers the GET request for the data
-loadTravelerData(2);
+// loadTravelerData(2);
 
 function filterTripsByUserId(trips, travelerId) {
   const filteredTrips = trips.filter(trip => {
@@ -103,8 +104,8 @@ function getEstimatedCost() {
   // console.log('grand total', grandTotal)
 
   const today = getTodaysDate();
-
   const chosenDestination = destinationList.options[destinationList.selectedIndex].value
+
   if (!requestedDate.value || !requestedDuration.value || !requestedNumTravelers.value || !chosenDestination) {
     domUpdates.displayEmptyStateError()
   } else if (requestedNumTravelers.value >10) {
@@ -162,12 +163,12 @@ function getRandomNum(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function viewTravelerForm() {
-  domUpdates.showSection(travelerFormSection)
-  domUpdates.hideSection(travelerTripsSection)
-  domUpdates.hideSection(travelerInfoSection)
-  domUpdates.hideSection(submitTripRequest)
-}
+// function viewTravelerForm() {
+//   domUpdates.showSection(travelerFormSection)
+//   domUpdates.hideSection(travelerTripsSection)
+//   domUpdates.hideSection(travelerInfoSection)
+//   domUpdates.hideSection(submitTripRequest)
+// }
 
 function returnToMain() {
   domUpdates.showSection(travelerInfoSection)
@@ -176,3 +177,29 @@ function returnToMain() {
   domUpdates.resetInnerHTML(estimatedCost)
   travelerForm.reset();
 }
+
+function checkLogInCredentials() {
+  const id = username.value.slice(8)
+  console.log(username.value)
+  console.log(id)
+  if (0 < id && id <= 50 && password.value === 'travel') {
+    console.log("valid id")
+    loadTravelerData(id)
+
+    domUpdates.showSection(travelerInfoSection)
+    domUpdates.showSection(travelerTripsSection)
+    domUpdates.showSection(travelerFormSection)
+    domUpdates.hideSection(logInSection)
+
+    logInForm.reset()
+    return id
+  } else {
+    console.log("not a valid id")
+    domUpdates.displayInvalidLogIn()
+    logInForm.reset()
+  }
+}
+
+// function logOutTraveler() {
+//
+// }
