@@ -5,18 +5,22 @@ const tripDestination = document.getElementById('tripDestination');
 const totalExpense = document.getElementById('totalExpense');
 const destinationList = document.getElementById('destinationList');
 
-const tripRequestBtn = document.getElementById('tripRequestBtn');
 const travelerForm = document.getElementById('travelerForm');
 const requestedDate = document.getElementById('requestedDate');
 const requestedDuration = document.getElementById('requestedDuration');
 const requestedNumTravelers = document.getElementById('requestedNumTravelers');
 const estimateBtn = document.getElementById('estimateBtn');
 const estimatedCost = document.getElementById('estimatedCost');
-const returnToMainBtn = document.getElementById('returnToMainBtn');
 
 const travelerFormSection = document.getElementById('travelerFormSection');
 const travelerTripsSection = document.getElementById('travelerTripsSection');
 const travelerInfoSection = document.getElementById('travelerInfoSection');
+
+const logInForm = document.getElementById('logInForm');
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+const logInBtn = document.getElementById('logInBtn');
+const signOutBtn = document.getElementById('signOutBtn');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
@@ -35,6 +39,7 @@ const domUpdates = {
   },
 
   displayTrips: function(trips) {
+    tripWidgetSection.innerHTML = ''
     trips.forEach(trip => {
       tripWidgetSection.innerHTML += `
       <section class="trip-widget" id="tripWidget">
@@ -94,6 +99,10 @@ const domUpdates = {
 
   displayEstimateErrorNumTravelers: function() {
     window.alert('Sorry, you can only book for a max number of 10 travelers')
+  },
+
+  displayInvalidLogIn: function() {
+    window.alert('Sorry, please enter a valid username and password')
   },
 
   resetInnerHTML: function(element) {

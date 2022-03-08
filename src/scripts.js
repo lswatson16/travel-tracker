@@ -18,10 +18,10 @@ let traveler, destinations;
 
 // -------------------Event Handlers-------------------------
 // window.addEventListener('load', )
-tripRequestBtn.addEventListener('click', viewTravelerForm)
 travelerForm.addEventListener('submit', addNewTripRequest)
 estimateBtn.addEventListener('click', getEstimatedCost)
-returnToMainBtn.addEventListener('click', returnToMain)
+logInBtn.addEventListener('click', checkLogInCredentials)
+signOutBtn.addEventListener('click', showLogInSection)
 // -------------------Functions-------------------------
 
 function loadTravelerData(id) {
@@ -46,7 +46,7 @@ function loadTravelerData(id) {
 }
 
 // triggers the GET request for the data
-loadTravelerData(2);
+// loadTravelerData(2);
 
 function filterTripsByUserId(trips, travelerId) {
   const filteredTrips = trips.filter(trip => {
@@ -103,8 +103,8 @@ function getEstimatedCost() {
   // console.log('grand total', grandTotal)
 
   const today = getTodaysDate();
-
   const chosenDestination = destinationList.options[destinationList.selectedIndex].value
+
   if (!requestedDate.value || !requestedDuration.value || !requestedNumTravelers.value || !chosenDestination) {
     domUpdates.displayEmptyStateError()
   } else if (requestedNumTravelers.value >10) {
@@ -148,7 +148,7 @@ function addNewTripRequest(e) {
   addTripRequest(newTripRequested)
     .then(data => {
       console.log(data)
-      loadTravelerData(2);
+      loadTravelerData(traveler.id)
       return data
     })
     .catch(err => {
@@ -162,17 +162,36 @@ function getRandomNum(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function viewTravelerForm() {
-  domUpdates.showSection(travelerFormSection)
-  domUpdates.hideSection(travelerTripsSection)
-  domUpdates.hideSection(travelerInfoSection)
-  domUpdates.hideSection(submitTripRequest)
+function checkLogInCredentials() {
+  const id = username.value.slice(8)
+  console.log(username.value)
+  console.log(id)
+  if (0 < id && id <= 50 && password.value === 'travel') {
+    console.log("valid id")
+
+    hideLogInSection()
+    loadTravelerData(id)
+    logInForm.reset()
+    return id
+  } else {
+    console.log("not a valid id")
+    domUpdates.displayInvalidLogIn()
+    logInForm.reset()
+  }
 }
 
-function returnToMain() {
+function showLogInSection() {
+  domUpdates.hideSection(travelerInfoSection)
+  domUpdates.hideSection(travelerTripsSection)
+  domUpdates.hideSection(travelerFormSection)
+  domUpdates.hideSection(signOutBtn)
+  domUpdates.showSection(logInSection)
+}
+
+function hideLogInSection() {
   domUpdates.showSection(travelerInfoSection)
   domUpdates.showSection(travelerTripsSection)
-  domUpdates.hideSection(travelerFormSection)
-  domUpdates.resetInnerHTML(estimatedCost)
-  travelerForm.reset();
+  domUpdates.showSection(travelerFormSection)
+  domUpdates.showSection(signOutBtn)
+  domUpdates.hideSection(logInSection)
 }
