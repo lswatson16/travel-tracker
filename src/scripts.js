@@ -181,17 +181,13 @@ function checkLogInCredentials() {
 }
 
 function showLogInSection() {
-  domUpdates.hideSection(travelerInfoSection)
-  domUpdates.hideSection(travelerTripsSection)
-  domUpdates.hideSection(travelerFormSection)
   domUpdates.hideSection(signOutBtn)
   domUpdates.showSection(logInSection)
+  domUpdates.hideSection(userDashboard)
 }
 
 function hideLogInSection() {
-  domUpdates.showSection(travelerInfoSection)
-  domUpdates.showSection(travelerTripsSection)
-  domUpdates.showSection(travelerFormSection)
   domUpdates.showSection(signOutBtn)
   domUpdates.hideSection(logInSection)
+  domUpdates.showSection(userDashboard)
 }
