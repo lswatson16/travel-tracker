@@ -5,14 +5,14 @@ const tripDestination = document.getElementById('tripDestination');
 const totalExpense = document.getElementById('totalExpense');
 const destinationList = document.getElementById('destinationList');
 
-const tripRequestBtn = document.getElementById('tripRequestBtn');
+// const tripRequestBtn = document.getElementById('tripRequestBtn');
 const travelerForm = document.getElementById('travelerForm');
 const requestedDate = document.getElementById('requestedDate');
 const requestedDuration = document.getElementById('requestedDuration');
 const requestedNumTravelers = document.getElementById('requestedNumTravelers');
 const estimateBtn = document.getElementById('estimateBtn');
 const estimatedCost = document.getElementById('estimatedCost');
-const returnToMainBtn = document.getElementById('returnToMainBtn');
+// const returnToMainBtn = document.getElementById('returnToMainBtn');
 
 const travelerFormSection = document.getElementById('travelerFormSection');
 const travelerTripsSection = document.getElementById('travelerTripsSection');
