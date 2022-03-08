@@ -4,7 +4,7 @@
 
 body {
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
   padding-right: 40px;
   padding-left: 40px;
   background-color: #F1F1F1;
@@ -14,6 +14,13 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 22%;
+}
+
+.traveler-trips-section {
+  width: 75em;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 .logo {
@@ -78,7 +85,7 @@ nav {
 
 .trip-widget-section {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   padding: 20px;
   width: 100%;
@@ -95,11 +102,13 @@ nav {
 
 .trip-image-container {
   width: 100%;
+  height: 14em;
 }
 
 .trip-image {
   width: 100%;
-  object-fit: contain;
+  height: 14em;
+  object-fit: cover;
   border-radius: 18px;
 }
 
@@ -160,7 +169,7 @@ nav {
 .return-btn,
 .trip-request-btn,
 .estimate-cost-btn,
-.sign-in-button,
+.sign-out-button,
 .log-in-btn {
   width: 30%;
   padding: 8px;
@@ -172,8 +181,8 @@ nav {
   font-size: 17px;
 }
 
-.sign-in-button {
-  width: 5%;
+.sign-out-button {
+  width: 10%;
 }
 
 .trip-request-btn {
