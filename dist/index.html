@@ -9,7 +9,7 @@
 <body>
   <nav>
     <p class="logo">Travel Tracker</p>
-    <button class="sign-out-button" id="signOutBtn" type="button" name="button">Sign Out</button>
+    <button class="sign-out-button hidden" id="signOutBtn" type="button" name="button">Sign Out</button>
   </nav>
   <main>
     <!-- <section> -->
@@ -17,7 +17,7 @@
       <!-- <img src="./images/ishan-seefromthesky-WVziwa_DDwI-unsplash.jpg" alt="aeriel view of Rasdhoo Island in the Maldives"> -->
     <!-- </section> -->
     <section class="user-dashboard" id="userDashboard">
-      <section class="traveler-info-section" id="travelerInfoSection">
+      <section class="traveler-info-section hidden" id="travelerInfoSection">
         <div class="welcome-container">
           <h1 class="welcome-traveler" id="welcomeTraveler">Welcome</h1>
         </div>
@@ -31,7 +31,7 @@
         </div> -->
       </section>
 
-      <section class="traveler-form-section" id="travelerFormSection">
+      <section class="traveler-form-section hidden" id="travelerFormSection">
         <form class="traveler-form form" id="travelerForm">
           <h2 class="travel-form-title">Make A New Trip Request</h2>
 
@@ -71,7 +71,7 @@
         </form>
       </section>
 
-      <section class="traveler-trips-section" id="travelerTripsSection">
+      <section class="traveler-trips-section hidden" id="travelerTripsSection">
         <h2 class="header-trips">Trips</h2>
         <div class="filter-buttons-container">
           <button class="filter-button" type="button" name="button">All Trips</button>
@@ -132,7 +132,7 @@
         <label for="username">Username</label>
         <input class ="log-in-input" id="username" type="text" name="username" value="" required>
         <label for="password">Password</label>
-        <input class ="log-in-input" id="password" type="text" name="password" value="" required>
+        <input class ="log-in-input" id="password" type="password" name="password" value="" required>
         <button class="log-in-btn" type="button" name="button" id="logInBtn">Log In</button>
       </form>
     </section>

@@ -187,11 +187,13 @@ function checkLogInCredentials() {
   if (0 < id && id <= 50 && password.value === 'travel') {
     console.log("valid id")
 
+    hideLogInSection()
     loadTravelerData(id)
-    domUpdates.showSection(travelerInfoSection)
-    domUpdates.showSection(travelerTripsSection)
-    domUpdates.showSection(travelerFormSection)
-    domUpdates.hideSection(logInSection)
+    // domUpdates.showSection(travelerInfoSection)
+    // domUpdates.showSection(travelerTripsSection)
+    // domUpdates.showSection(travelerFormSection)
+    // domUpdates.showSection(signOutBtn)
+    // domUpdates.hideSection(logInSection)
     logInForm.reset()
     return id
   } else {
@@ -205,5 +207,14 @@ function showLogInSection() {
   domUpdates.hideSection(travelerInfoSection)
   domUpdates.hideSection(travelerTripsSection)
   domUpdates.hideSection(travelerFormSection)
+  domUpdates.hideSection(signOutBtn)
   domUpdates.showSection(logInSection)
+}
+
+function hideLogInSection() {
+  domUpdates.showSection(travelerInfoSection)
+  domUpdates.showSection(travelerTripsSection)
+  domUpdates.showSection(travelerFormSection)
+  domUpdates.showSection(signOutBtn)
+  domUpdates.hideSection(logInSection)
 }
