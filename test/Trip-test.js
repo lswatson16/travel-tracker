@@ -5,7 +5,15 @@ describe('Trip', () => {
   let trip;
 
   beforeEach(function() {
-    trip = new Trip(409, 12, 35, 3, "2022/03/15", 3);
+    // trip = new Trip(409, 12, 35, 3, "2022/03/15", 3);
+    trip = new Trip({
+      id: 409,
+      userID: 12,
+      destinationID: 35,
+      travelers: 3,
+      date: "2022/03/15",
+      duration: 3
+    });
   });
 
   it('should be a function', function () {
