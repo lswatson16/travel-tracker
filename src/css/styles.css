@@ -85,7 +85,8 @@ nav {
   border-radius: 4px;
 }
 
-.filter-button:hover {
+.filter-button:hover,
+.filter-button:focus {
   background-color: #818cf8;
 }
 
