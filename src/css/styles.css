@@ -131,7 +131,8 @@ nav {
   justify-content: center;
 }
 
-.traveler-form {
+.traveler-form,
+.log-in-form {
   display: flex;
   flex-direction: column;
   width: 20%;
@@ -142,12 +143,14 @@ nav {
   background-color: rgb(250 250 249);
 }
 
-.travel-form-title {
+.travel-form-title,
+.log-in-title {
   text-align: center;
 }
 
 .traveler-input,
-.destination-list {
+.destination-list,
+.log-in-input {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -157,7 +160,8 @@ nav {
 .return-btn,
 .trip-request-btn,
 .estimate-cost-btn,
-.sign-in-button {
+.sign-in-button,
+.log-in-btn {
   width: 30%;
   padding: 8px;
   align-self: center;
@@ -168,17 +172,21 @@ nav {
   font-size: 17px;
 }
 
-.trip-request-btn {
-  width: 16%;
-}
-
 .sign-in-button {
   width: 5%;
+}
+
+.trip-request-btn {
+  width: 16%;
 }
 
 .return-btn,
 .estimate-cost-btn {
   width: 60%;
+}
+
+.log-in-btn {
+  width: 48%;
 }
 
 .hidden {
