@@ -16,6 +16,23 @@ describe('Traveler', () => {
     expect(traveler).to.be.an.instanceof(Traveler);
   });
 
+  it('should have an id', function () {
+    expect(traveler.id).to.equal(1);
+  });
+
+  it('should have a name', function () {
+    expect(traveler.name).to.equal('Ham Leadbeater');
+  });
+
+  it('should have a type', function () {
+    expect(traveler.travelerType).to.equal('relaxer');
+  });
+
+  it('should have an empty string if no type', function () {
+    let nomad = new Traveler(6, 'Gosh');
+    expect(nomad.travelerType).to.equal('');
+  });
+
   it('should keep track of a collection of trips specific to the current traveler', function () {
     expect(traveler.trips).to.eql([]);
   });
