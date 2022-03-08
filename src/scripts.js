@@ -5,12 +5,13 @@
 import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+// import './images/turing-logo.png'
 
 // console.log('This is the JavaScript entry file - your code begins here.');
 
 import { getTraveler, getTrips, getDestinations, addTripRequest } from './apiCalls.js'
 import Traveler from './Traveler.js'
+import TripDestination from '../src/TripDestination';
 import domUpdates from './domUpdates.js'
 
 // -------------------Global Variables-------------------------
@@ -27,6 +28,9 @@ signOutBtn.addEventListener('click', showLogInSection)
 function loadTravelerData(id) {
   Promise.all([getTraveler(id), getTrips(), getDestinations()])
     .then(data => {
+      console.log(data[0])
+      console.log(data[1])
+      console.log(data[2])
 
       traveler = new Traveler(data[0].id, data[0].name, data[0].travelerType)
       destinations = data[2].destinations
@@ -35,9 +39,18 @@ function loadTravelerData(id) {
       // console.log(traveler)
 
       const detailedTrips = findDestinationsByDestId(data[2].destinations, travelerTrips)
-      traveler.trips = detailedTrips
+      console.log('detailed trips', detailedTrips)
+      const tripInstances = detailedTrips.map(detailedTrip => {
+        const newTrip = new TripDestination(detailedTrip)
+        return newTrip
+      })
+      console.log('tripInstances', tripInstances)
+
+      traveler.trips = tripInstances;
+      console.log('test travel trips', traveler.trips)
       domUpdates.displayTrips(traveler.trips)
 
+      // update the hardcoded year to pull from current year
       const travelExpense = traveler.calcTotalExpensesForYear('2020')
       domUpdates.displayTripExpense(travelExpense.toFixed(2))
 
@@ -61,9 +74,11 @@ function findDestinationsByDestId(destinations, filteredTrips) {
       return destination.id === trip.destinationID
     })
 
-    let obj = {
+    const alt = foundDestination.alt === undefined ? '' : foundDestination.alt
+
+    let tripWithDestinationInfo = {
       image: foundDestination.image,
-      alt: foundDestination.alt,
+      alt: alt,
       destination: foundDestination.destination,
       estimatedLodgingCostPerDay: foundDestination.estimatedLodgingCostPerDay,
       estimatedFlightCostPerPerson: foundDestination.estimatedFlightCostPerPerson,
@@ -71,9 +86,12 @@ function findDestinationsByDestId(destinations, filteredTrips) {
       date: trip.date,
       duration: trip.duration,
       status: trip.status,
-      suggestedActivities: trip.suggestedActivities
+      suggestedActivities: trip.suggestedActivities,
+      id: trip.id,
+      userID: trip.userID,
+      destinationID: trip.destinationID,
     }
-    return obj
+    return tripWithDestinationInfo
   })
   return result
 }
@@ -107,7 +125,7 @@ function getEstimatedCost() {
 
   if (!requestedDate.value || !requestedDuration.value || !requestedNumTravelers.value || !chosenDestination) {
     domUpdates.displayEmptyStateError()
-  } else if (requestedNumTravelers.value >10) {
+  } else if (requestedNumTravelers.value > 10) {
     domUpdates.displayEstimateErrorNumTravelers()
   } else if(requestedDate.value < today) {
       domUpdates.displayDateError()
@@ -191,3 +209,14 @@ function hideLogInSection() {
   domUpdates.hideSection(logInSection)
   domUpdates.showSection(userDashboard)
 }
+
+// function filterTrips(trips) {
+//   return trips.filter(trip => {
+//     let date = getTodaysDate()
+//     console.log('testinggg', date)
+//
+//     // return trip.date.includes(date)
+//   })
+// }
+
+// filterTrips(traveler.trips)

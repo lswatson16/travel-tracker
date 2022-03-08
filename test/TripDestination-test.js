@@ -60,8 +60,6 @@ describe('TripDestination', () => {
     expect(trip.suggestedActivities).to.eql([]);
   });
 
-
-
   it('should have an image of the beautiful destination', function () {
     expect(trip.image).to.equal('https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80');
   });
