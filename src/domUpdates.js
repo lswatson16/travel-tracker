@@ -35,6 +35,7 @@ const domUpdates = {
   },
 
   displayTrips: function(trips) {
+    tripWidgetSection.innerHTML = ''
     trips.forEach(trip => {
       tripWidgetSection.innerHTML += `
       <section class="trip-widget" id="tripWidget">
