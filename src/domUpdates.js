@@ -22,6 +22,7 @@ const logInForm = document.getElementById('logInForm');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
 const logInBtn = document.getElementById('logInBtn');
+const signOutBtn = document.getElementById('signOutBtn');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {

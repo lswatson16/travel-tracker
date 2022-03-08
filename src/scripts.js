@@ -23,6 +23,7 @@ travelerForm.addEventListener('submit', addNewTripRequest)
 estimateBtn.addEventListener('click', getEstimatedCost)
 returnToMainBtn.addEventListener('click', returnToMain)
 logInBtn.addEventListener('click', checkLogInCredentials)
+signOutBtn.addEventListener('click', showLogInSection)
 // -------------------Functions-------------------------
 
 function loadTravelerData(id) {
@@ -200,6 +201,9 @@ function checkLogInCredentials() {
   }
 }
 
-// function logOutTraveler() {
-//
-// }
+function showLogInSection() {
+  domUpdates.hideSection(travelerInfoSection)
+  domUpdates.hideSection(travelerTripsSection)
+  domUpdates.hideSection(travelerFormSection)
+  domUpdates.showSection(logInSection)
+}
