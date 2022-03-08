@@ -47,7 +47,7 @@ nav {
   background-color: rgb(250 250 249);
   padding: 8px;
   border-radius: 7px;
-  border: solid #94a3b8 1px;
+  /* border: solid #94a3b8 1px; */
 }
 
 .trip-request-btn-container {
@@ -140,34 +140,75 @@ nav {
   justify-content: center;
 }
 
-.traveler-form,
-.log-in-form {
+.traveler-form {
   display: flex;
   flex-direction: column;
-  width: 20%;
-  border: black solid 1px;
-  border-radius: 6px;
-  padding: 12px;
+  width: 69%;
+  /* border: black solid 1px; */
+  border-radius: 95px;
+  padding: 27px;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   background-color: rgb(250 250 249);
 }
 
-.travel-form-title,
-.log-in-title {
-  text-align: center;
+.travel-form-flex {
+  display: flex;
+  justify-content: center;
 }
 
+.travel-form-container {
+  display: flex;
+}
+
+.travel-form-title {
+ text-align: center;
+}
+
+.traveler-request-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.traveler-request-flex label {
+  margin-bottom: 5px;
+}
+
+.num-traveler-input,
+.duration-input {
+  width: 6em;
+}
+
+.destination-list {
+  width: 12em;
+}
+
+.travel-form-btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .travel-form-title,
+.log-in-title {
+  text-align: center;
+} */
+
 .traveler-input,
-.destination-list,
 .log-in-input {
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 5px;
 }
 
+.traveler-input {
+  margin-right: 26px;
+}
+
+.log-in-input {
+  margin-bottom: 10px;
+}
+
 .submit-trip-btn,
-.return-btn,
-.trip-request-btn,
+/* .return-btn, */
+/* .trip-request-btn, */
 .estimate-cost-btn,
 .sign-out-button,
 .log-in-btn {
@@ -181,17 +222,38 @@ nav {
   font-size: 17px;
 }
 
+.estimate-cost-btn,
+.submit-trip-btn {
+  width: 68%;
+}
+
+
 .sign-out-button {
   width: 10%;
 }
 
-.trip-request-btn {
+/* .trip-request-btn {
   width: 16%;
-}
+} */
 
-.return-btn,
+/* .return-btn,
 .estimate-cost-btn {
   width: 60%;
+} */
+
+.log-in-form {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  /* border: black solid 1px; */
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background-color: rgb(250 250 249);
+}
+
+.log-in-title {
+  text-align: center;
 }
 
 .log-in-btn {
