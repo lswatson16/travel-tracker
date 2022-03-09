@@ -63,4 +63,5 @@ The user can sign out to navigate back to the login screen.
 ## ✈ Contributors
 - [Lauralyn Watson](https://github.com/lswatson16)
 - [Heather Faerber](https://github.com/hfaerber) as Project Manager
+- [Richard Rosa-Serrano](https://github.com/RosaTheDev)
 - [Emily Cathleen](https://github.com/Emily-Cathleen) as reviewer
