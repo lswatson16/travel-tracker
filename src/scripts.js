@@ -51,7 +51,11 @@ function loadTravelerData(id) {
       domUpdates.displayTrips(traveler.trips)
 
       // update the hardcoded year to pull from current year
-      const travelExpense = traveler.calcTotalExpensesForYear('2020')
+      var today = new Date();
+      var year = today.getFullYear();
+      console.log('test', year)
+      // const travelExpense = traveler.calcTotalExpensesForYear('2020')
+      const travelExpense = traveler.calcTotalExpensesForYear(year)
       domUpdates.displayTripExpense(travelExpense.toFixed(2))
 
       domUpdates.createDestinationList(data[2].destinations)
