@@ -1,105 +1,66 @@
-# Webpack Starter Kit
+# 🛫 Travel Tracker 🛬
 
-## Clone This Repo
+## ✈ Overview
+Travel Tracker is an application that has two user interfaces, the traveler and the travel agent. Both users can log in to view their dashboard.
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+The traveler's dashboard displays all of the traveler's trips and their annual travel expenses. The traveler can view an estimate for a potential trip and request a new trip.
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+The travel agent dashboard displays new trip requests by travelers. The agent can view their total yearly income and the traveler's on trips for the current year. The travel agent can approve and deny any pending trips; and search for a user by their name in order to:
+- view that travelers trips and expenses
+- approve trip request
+- delete upcoming trips.
 
-Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+## ✈ Instructions/Installations
 
-## Setup
+- Here's the [Deploy Link](https://lswatson16.github.io/travel-tracker/) to interact with the application I built
+- For this project, I used the [Webpack Starter Kit](https://github.com/turingschool-examples/webpack-starter-kit) repo. The setup instructions are in the README. I also cloned down this [local server](https://github.com/turingschool-examples/travel-tracker-api) and had it running in a separate tab in my terminal each time I ran my client.
+  - Use command `git clone` to clone the repo
+  - `cd` into the directory
+  - Run `npm install` to download all necessary packages and dependencies
+  - Run `npm start` to run the server
+    - Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go.
+    - Enter `control + c` in your terminal to stop the server at any time.
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+## ✈ Features
+### Login
+![Login](https://media.giphy.com/media/CFhwqipm6beQDN4AhP/giphy.gif)
 
-Then install the library dependencies. Run:
+When you first arrive at the site, the user must login with their correct credentials in order to navigate to their dashboard.
+- A message will alert the user if the incorrect username and password was entered.
+- Upon successful login, the traveler will see their dashboard which displays all their trips, a trip request form and an annual expense report for the current year.
 
-```bash
-npm install
-```
+### New Trip Request Form
+![Trip Request](https://media.giphy.com/media/MuKzYFAEOpRjjNeXiR/giphy.gif)
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+- The traveler can see the estimate cost for a new trip by filling out the form.
+- The traveler can make a new trip request by submitting the form.
+- The trip request form handles these errors and alerts the user to resolve:
+  - all input fields must be filled
+  - the selected dates cannot be a date in the past
+  - number of travelers has a max of 10
 
-## Where to Add Your Code
+### Filter Trips
+The trips displayed can be filtered by all, past, upcoming, and pending trips.
 
-### JavaScript
+### Log Out
+The user can sign out to navigate back to the login screen.
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+## ✈ Future Features
+- Responsive design
 
-**Create all of your feature code files in the `src` directory.**
+## ✈ Technologies Used
+* Javascript
+* CSS
+* HTML
+* Webpack
+* Mocha/Chai
+* Lighthouse
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+## ✈ Links
+- [Deploy Link](https://lswatson16.github.io/travel-tracker/)
+- [GitHub repo](https://github.com/lswatson16/travel-tracker)
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
-
-### HTML
-
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
-
-### CSS (SCSS/SASS)
-
-This project is setup to use SCSS/Sass files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
-
-This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`scripts.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+## ✈ Contributors
+- [Lauralyn Watson](https://github.com/lswatson16)
+- [Heather Faerber](https://github.com/hfaerber) as Project Manager
+- [Emily Cathleen](https://github.com/Emily-Cathleen) as reviewer

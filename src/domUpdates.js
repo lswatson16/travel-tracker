@@ -4,18 +4,13 @@ const tripWidgetSection = document.getElementById('tripWidgetSection');
 const tripDestination = document.getElementById('tripDestination');
 const totalExpense = document.getElementById('totalExpense');
 const destinationList = document.getElementById('destinationList');
-
 const travelerForm = document.getElementById('travelerForm');
 const requestedDate = document.getElementById('requestedDate');
 const requestedDuration = document.getElementById('requestedDuration');
 const requestedNumTravelers = document.getElementById('requestedNumTravelers');
 const estimateBtn = document.getElementById('estimateBtn');
 const estimatedCost = document.getElementById('estimatedCost');
-
-const travelerFormSection = document.getElementById('travelerFormSection');
-const travelerTripsSection = document.getElementById('travelerTripsSection');
-const travelerInfoSection = document.getElementById('travelerInfoSection');
-
+const userDashboard = document.getElementById('userDashboard');
 const logInForm = document.getElementById('logInForm');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
