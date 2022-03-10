@@ -12,7 +12,6 @@ The travel agent dashboard displays new trip requests by travelers. The agent ca
 
 ## ✈ Instructions/Installations
 
-- Here's the [Deploy Link](https://lswatson16.github.io/travel-tracker/) to interact with the application I built
 - For this project, I used the [Webpack Starter Kit](https://github.com/turingschool-examples/webpack-starter-kit) repo. The setup instructions are in the README. I also cloned down this [local server](https://github.com/turingschool-examples/travel-tracker-api) and had it running in a separate tab in my terminal each time I ran my client.
   - Use command `git clone` to clone the repo
   - `cd` into the directory
@@ -57,7 +56,6 @@ The user can sign out to navigate back to the login screen.
 * Lighthouse
 
 ## ✈ Links
-- [Deploy Link](https://lswatson16.github.io/travel-tracker/)
 - [GitHub repo](https://github.com/lswatson16/travel-tracker)
 
 ## ✈ Contributors
