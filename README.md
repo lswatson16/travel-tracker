@@ -10,10 +10,10 @@ The travel agent dashboard displays new trip requests by travelers. The agent ca
 - Approve trip request
 - Delete upcoming trips.
 
-## ✈ Instructions/Installations
+## ✈ Instructions
 
 ### Get Started
-Client-side server
+**Client-side server**
   - In the terminal, run the command `git clone` to clone this repo
   - `cd` into the directory `cd travel-tracker`
   - Run `npm install` to download all necessary packages and dependencies
@@ -21,10 +21,16 @@ Client-side server
     - Go to `http://localhost:8080/`
     - Enter `control + c` in your terminal to stop the server at any time.
 
-Back-end server
+**Back-end server**
   - In a separate directory on your local machine, clone down this [back-end server](https://github.com/turingschool-examples/travel-tracker-api) using command `git clone`
-    - In a separate terminal tab, run the back-end API each time you run the client-side server.
-    - Running on `localhost:3001`
+  - Open a seprate terminal tab and `cd` into the directory `cd travel-tracker-api`
+  - Run `npm start` to start up the back-end server
+    - You should see a similar message in the terminal:
+    ```
+    [nodemon] starting node server.js
+    Travel Tracker API is now running on http://localhost:3001 ! 
+    ```
+    - Run the back-end API each time you run the client-side server.
     - Enter `control + c` in your terminal to stop the server at any time.
 
 ### Build Your Own Travel Tracker
