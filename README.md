@@ -21,7 +21,7 @@ The travel agent dashboard displays new trip requests by travelers. The agent ca
     - Go to `http://localhost:8080/`
     - Enter `control + c` in your terminal to stop the server at any time.
 
-**Back-end server**
+**Back-end server (Express.js)**
   - In a separate directory on your local machine, clone down this [back-end server](https://github.com/turingschool-examples/travel-tracker-api) using command `git clone`
   - Open a seprate terminal tab and `cd` into the directory `cd travel-tracker-api`
   - Run `npm start` to start up the back-end server
@@ -71,8 +71,8 @@ The user can sign out to navigate back to the login screen.
 * Mocha/Chai
 * Lighthouse
 
-## ✈ Links
-- [GitHub repo](https://github.com/lswatson16/travel-tracker)
+## ✈ Deployment
+- [Deploy Link](https://ablaze-dog.surge.sh/) - *Note: Remember to run the back-end server when you use this deploy link (See [instructions](https://github.com/lswatson16/travel-tracker/edit/main/README.md#-instructions) above)*
 
 ## ✈ Contributors
 - [Lauralyn Watson](https://github.com/lswatson16)
