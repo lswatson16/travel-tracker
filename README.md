@@ -74,7 +74,9 @@ The user can sign out to navigate back to the login screen.
 * Lighthouse
 
 ## ✈ Deployment
-- [Deploy Link](https://ablaze-dog.surge.sh/) - *Note: Remember to run the back-end server when you use this deploy link (See [instructions](https://github.com/lswatson16/travel-tracker/edit/main/README.md#-instructions) above)*
+- [Travel Tracker](https://travel-tracker-six.vercel.app/)
+
+*Note: Remember to run the back-end server when you use this deploy link (See [instructions](https://github.com/lswatson16/travel-tracker/edit/main/README.md#-instructions) above)*
 
 ## ✈ Contributors
 - [Lauralyn Watson](https://github.com/lswatson16)
