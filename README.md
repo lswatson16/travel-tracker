@@ -10,7 +10,7 @@ The travel agent dashboard displays new trip requests by travelers. The agent ca
 - Approve trip request
 - Delete upcoming trips.
 
-## ✈ Instructions/Installations
+## ✈ Instructions
 
 ### Get Started
 **Client-side server**
@@ -22,9 +22,16 @@ The travel agent dashboard displays new trip requests by travelers. The agent ca
     - Enter `control + c` in your terminal to stop the server at any time.
 
 **Back-end server**
-  - In a separate directory on your local machine, clone down this ***Node.js/Express.js*** [server](https://github.com/turingschool-examples/travel-tracker-api) using command `git clone`
-    - In a separate terminal tab, run the back-end server while you run the client-side server. Both servers must be running in order for the application to work as expected.
-    - Running on `localhost:3001`
+  - Create a new directory on your local machine. The new directory shoould be a separate directory from the front end application.
+  - In the new directory, clone down this ***Node.js/Express.js*** [back-end server](https://github.com/turingschool-examples/travel-tracker-api) using command `git clone`
+  - Open a new terminal tab and `cd` into the directory `cd travel-tracker-api`
+  - Run `npm start` to start up the back-end server
+    - You should see a similar message in the terminal:
+    ```
+    [nodemon] starting node server.js
+    Travel Tracker API is now running on http://localhost:3001 ! 
+    ```
+    - Both servers must be running in order for the application to work as expected.
     - Enter `control + c` in your terminal to stop the server at any time.
 
 ### Build Your Own Travel Tracker
@@ -66,8 +73,8 @@ The user can sign out to navigate back to the login screen.
 * Mocha/Chai
 * Lighthouse
 
-## ✈ Links
-- [GitHub repo](https://github.com/lswatson16/travel-tracker)
+## ✈ Deployment
+- [Deploy Link](https://ablaze-dog.surge.sh/) - *Note: Remember to run the back-end server when you use this deploy link (See [instructions](https://github.com/lswatson16/travel-tracker/edit/main/README.md#-instructions) above)*
 
 ## ✈ Contributors
 - [Lauralyn Watson](https://github.com/lswatson16)
