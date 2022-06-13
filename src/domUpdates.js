@@ -16,6 +16,11 @@ const username = document.getElementById('username');
 const password = document.getElementById('password');
 const logInBtn = document.getElementById('logInBtn');
 const signOutBtn = document.getElementById('signOutBtn');
+const allTrips = document.getElementById('allTrips');
+const pastTrips = document.getElementById('pastTrips');
+const presentTrips = document.getElementById('presentTrips');
+const upcomingTrips = document.getElementById('upcomingTrips');
+const pendingTrips = document.getElementById('pendingTrips');
 
 // -------------------FUNCTIONS-------------------------
 const domUpdates = {
