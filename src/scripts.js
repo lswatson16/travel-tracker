@@ -13,6 +13,19 @@ travelerForm.addEventListener('submit', addNewTripRequest)
 estimateBtn.addEventListener('click', getEstimatedCost)
 logInBtn.addEventListener('click', checkLogInCredentials)
 signOutBtn.addEventListener('click', showLogInSection)
+
+allTrips.addEventListener('click', filterBy)
+pastTrips.addEventListener('click', filterBy)
+presentTrips.addEventListener('click', filterBy)
+upcomingTrips.addEventListener('click', filterBy)
+pendingTrips.addEventListener('click', filterBy)
+
+// for (var i = 0; i < filterButtons.length; i++) {
+//   filterButtons[i].addEventListener('click', filterBy);
+// }
+
+// filterButtons.forEach(button => button.addEventListener('click', filterBy))
+
 // -------------------Functions-------------------------
 
 function loadTravelerData(id) {
@@ -157,6 +170,13 @@ function addNewTripRequest(e) {
     })
 
   travelerForm.reset();
+}
+
+function filterBy(e) {
+  console.log('clicked filter')
+  console.log(e.target.name)
+  let type = e.target.name
+  return type
 }
 
 function getRandomNum(min, max) {
