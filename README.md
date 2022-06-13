@@ -35,6 +35,7 @@ For this project, I used the [Webpack Starter Kit](https://github.com/turingscho
 ![Login](https://media.giphy.com/media/CFhwqipm6beQDN4AhP/giphy.gif)
 
 When you first arrive at the site, the user must login with their correct credentials in order to navigate to their dashboard.
+- To log in use ***travel[:id]*** as the username and ***travel*** as the password. For example, username: ***traveler12*** and password: ***travel***
 - A message will alert the user if the incorrect username and password was entered.
 - Upon successful login, the traveler will see their dashboard which displays all their trips, a trip request form and an annual expense report for the current year.
 
