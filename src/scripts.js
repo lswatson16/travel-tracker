@@ -18,9 +18,9 @@ signOutBtn.addEventListener('click', showLogInSection)
 function loadTravelerData(id) {
   Promise.all([getTraveler(id), getTrips(), getDestinations()])
     .then(data => {
-      console.log(data[0])
-      console.log(data[1])
-      console.log(data[2])
+      // console.log(data[0])
+      // console.log(data[1])
+      // console.log(data[2])
 
       // ****** organize ******
       traveler = new Traveler(data[0].id, data[0].name, data[0].travelerType)
@@ -29,21 +29,21 @@ function loadTravelerData(id) {
       const travelerTrips = filterTripsByUserId(data[1].trips, data[0].id)
 
       const detailedTrips = findDestinationsByDestId(data[2].destinations, travelerTrips)
-      console.log('detailed trips', detailedTrips)
+      // console.log('detailed trips', detailedTrips)
       const tripInstances = detailedTrips.map(detailedTrip => {
         const newTrip = new TripDestination(detailedTrip)
         return newTrip
       })
-      console.log('tripInstances', tripInstances)
+      // console.log('tripInstances', tripInstances)
 
       traveler.trips = tripInstances;
-      console.log('test travel trips', traveler.trips)
+      // console.log('test travel trips', traveler.trips)
       domUpdates.displayTrips(traveler.trips)
 
 
       var today = new Date();
       var year = today.getFullYear();
-      console.log('test', year)
+      // console.log('test', year)
       const travelExpense = traveler.calcTotalExpensesForYear(year)
       domUpdates.displayTripExpense(travelExpense.toFixed(2))
 
@@ -165,17 +165,17 @@ function getRandomNum(min, max) {
 
 function checkLogInCredentials() {
   const id = username.value.slice(8)
-  console.log(username.value)
-  console.log(id)
+  // console.log(username.value)
+  // console.log(id)
   if (0 < id && id <= 50 && password.value === 'travel') {
-    console.log("valid id")
+    // console.log("valid id")
 
     hideLogInSection()
     loadTravelerData(id)
     logInForm.reset()
     return id
   } else {
-    console.log("not a valid id")
+    // console.log("not a valid id")
     domUpdates.displayInvalidLogIn()
     logInForm.reset()
   }
