@@ -13,7 +13,7 @@ The travel agent dashboard displays new trip requests by travelers. The agent ca
 ## ✈ Instructions/Installations
 
 ### Get Started
-Client-side server
+**Client-side server**
   - In the terminal, run the command `git clone` to clone this repo
   - `cd` into the directory `cd travel-tracker`
   - Run `npm install` to download all necessary packages and dependencies
@@ -21,14 +21,14 @@ Client-side server
     - Go to `http://localhost:8080/`
     - Enter `control + c` in your terminal to stop the server at any time.
 
-Back-end server
-  - In a separate directory on your local machine, clone down this [back-end server](https://github.com/turingschool-examples/travel-tracker-api) using command `git clone`
-    - In a separate terminal tab, run the back-end API each time you run the client-side server.
+**Back-end server**
+  - In a separate directory on your local machine, clone down this ***Node.js/Express.js*** [server](https://github.com/turingschool-examples/travel-tracker-api) using command `git clone`
+    - In a separate terminal tab, run the back-end server while you run the client-side server. Both servers must be running in order for the application to work as expected.
     - Running on `localhost:3001`
     - Enter `control + c` in your terminal to stop the server at any time.
 
 ### Build Your Own Travel Tracker
-For this project, I used the [Webpack Starter Kit](https://github.com/turingschool-examples/webpack-starter-kit) repo. The setup instructions are in the README. I also cloned down this [server](https://github.com/turingschool-examples/travel-tracker-api) and had it running in a separate tab in my terminal each time I ran my client-side server.
+For this project, I used the [Webpack Starter Kit](https://github.com/turingschool-examples/webpack-starter-kit) repo. The setup instructions are in the README. I also cloned down this [back-end server](https://github.com/turingschool-examples/travel-tracker-api) and had it running in a separate tab in my terminal every time I ran my client-side server.
 
 ## ✈ Features
 ### Login
